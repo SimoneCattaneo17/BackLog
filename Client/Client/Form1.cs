@@ -7,19 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
-namespace Client
-{
-    public partial class Backlog : Form
-    {
-        public Backlog()
-        {
+namespace Client { 
+
+    public partial class Backlog : Form {
+        public Backlog() {
             InitializeComponent();
         }
 
-        private void Backlog_Load(object sender, EventArgs e)
-        {
-
+        private void Backlog_Load(object sender, EventArgs e) {
+            
         }
     }
 }

@@ -1,0 +1,11 @@
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\bin\Debug\Client.exe.config
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\bin\Debug\Client.exe
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\bin\Debug\Client.pdb
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\obj\Debug\Client.csproj.AssemblyReference.cache
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\obj\Debug\Client.csproj.SuggestedBindingRedirects.cache
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\obj\Debug\Client.Backlog.resources
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\obj\Debug\Client.exe
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\obj\Debug\Client.pdb
