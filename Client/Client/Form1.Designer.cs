@@ -47,11 +47,11 @@ namespace Client
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.rjButtons1 = new Client.RJButtons();
-            this.rjButtons2 = new Client.RJButtons();
-            this.rjButtons3 = new Client.RJButtons();
-            this.rjButtons4 = new Client.RJButtons();
             this.rjButtons5 = new Client.RJButtons();
+            this.rjButtons4 = new Client.RJButtons();
+            this.rjButtons3 = new Client.RJButtons();
+            this.rjButtons2 = new Client.RJButtons();
+            this.rjButtons1 = new Client.RJButtons();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -72,10 +72,12 @@ namespace Client
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::Client.Properties.Resources._default;
             this.pictureBox1.Location = new System.Drawing.Point(16, 15);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 92);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -236,48 +238,23 @@ namespace Client
             this.pictureBox16.TabIndex = 14;
             this.pictureBox16.TabStop = false;
             // 
-            // rjButtons1
+            // rjButtons5
             // 
-            this.rjButtons1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButtons1.FlatAppearance.BorderSize = 0;
-            this.rjButtons1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButtons1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButtons1.ForeColor = System.Drawing.Color.White;
-            this.rjButtons1.Location = new System.Drawing.Point(969, 480);
-            this.rjButtons1.Name = "rjButtons1";
-            this.rjButtons1.Size = new System.Drawing.Size(67, 62);
-            this.rjButtons1.TabIndex = 19;
-            this.rjButtons1.Text = " +";
-            this.rjButtons1.UseVisualStyleBackColor = false;
-            // 
-            // rjButtons2
-            // 
-            this.rjButtons2.BackColor = System.Drawing.Color.Yellow;
-            this.rjButtons2.FlatAppearance.BorderSize = 0;
-            this.rjButtons2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButtons2.ForeColor = System.Drawing.Color.Black;
-            this.rjButtons2.Location = new System.Drawing.Point(16, 174);
-            this.rjButtons2.Name = "rjButtons2";
-            this.rjButtons2.Size = new System.Drawing.Size(249, 40);
-            this.rjButtons2.TabIndex = 20;
-            this.rjButtons2.Text = "Completato";
-            this.rjButtons2.UseVisualStyleBackColor = false;
-            // 
-            // rjButtons3
-            // 
-            this.rjButtons3.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButtons3.FlatAppearance.BorderSize = 0;
-            this.rjButtons3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButtons3.ForeColor = System.Drawing.Color.White;
-            this.rjButtons3.Location = new System.Drawing.Point(16, 238);
-            this.rjButtons3.Name = "rjButtons3";
-            this.rjButtons3.Size = new System.Drawing.Size(249, 40);
-            this.rjButtons3.TabIndex = 21;
-            this.rjButtons3.Text = "In corso";
-            this.rjButtons3.UseVisualStyleBackColor = false;
+            this.rjButtons5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.rjButtons5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButtons5.FlatAppearance.BorderSize = 0;
+            this.rjButtons5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButtons5.ForeColor = System.Drawing.Color.White;
+            this.rjButtons5.Location = new System.Drawing.Point(16, 363);
+            this.rjButtons5.Name = "rjButtons5";
+            this.rjButtons5.Size = new System.Drawing.Size(249, 40);
+            this.rjButtons5.TabIndex = 23;
+            this.rjButtons5.Text = "Ricerca utente";
+            this.rjButtons5.UseVisualStyleBackColor = false;
             // 
             // rjButtons4
             // 
+            this.rjButtons4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rjButtons4.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.rjButtons4.FlatAppearance.BorderSize = 0;
             this.rjButtons4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -289,18 +266,48 @@ namespace Client
             this.rjButtons4.Text = "In programma";
             this.rjButtons4.UseVisualStyleBackColor = false;
             // 
-            // rjButtons5
+            // rjButtons3
             // 
-            this.rjButtons5.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButtons5.FlatAppearance.BorderSize = 0;
-            this.rjButtons5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButtons5.ForeColor = System.Drawing.Color.White;
-            this.rjButtons5.Location = new System.Drawing.Point(16, 363);
-            this.rjButtons5.Name = "rjButtons5";
-            this.rjButtons5.Size = new System.Drawing.Size(249, 40);
-            this.rjButtons5.TabIndex = 23;
-            this.rjButtons5.Text = "Ricerca utente";
-            this.rjButtons5.UseVisualStyleBackColor = false;
+            this.rjButtons3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.rjButtons3.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButtons3.FlatAppearance.BorderSize = 0;
+            this.rjButtons3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButtons3.ForeColor = System.Drawing.Color.White;
+            this.rjButtons3.Location = new System.Drawing.Point(16, 238);
+            this.rjButtons3.Name = "rjButtons3";
+            this.rjButtons3.Size = new System.Drawing.Size(249, 40);
+            this.rjButtons3.TabIndex = 21;
+            this.rjButtons3.Text = "In corso";
+            this.rjButtons3.UseVisualStyleBackColor = false;
+            // 
+            // rjButtons2
+            // 
+            this.rjButtons2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.rjButtons2.BackColor = System.Drawing.Color.Yellow;
+            this.rjButtons2.FlatAppearance.BorderSize = 0;
+            this.rjButtons2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButtons2.ForeColor = System.Drawing.Color.Black;
+            this.rjButtons2.Location = new System.Drawing.Point(16, 174);
+            this.rjButtons2.Name = "rjButtons2";
+            this.rjButtons2.Size = new System.Drawing.Size(249, 40);
+            this.rjButtons2.TabIndex = 20;
+            this.rjButtons2.Text = "Completato";
+            this.rjButtons2.UseVisualStyleBackColor = false;
+            // 
+            // rjButtons1
+            // 
+            this.rjButtons1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.rjButtons1.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButtons1.FlatAppearance.BorderSize = 0;
+            this.rjButtons1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButtons1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButtons1.ForeColor = System.Drawing.Color.White;
+            this.rjButtons1.Location = new System.Drawing.Point(969, 480);
+            this.rjButtons1.Name = "rjButtons1";
+            this.rjButtons1.Size = new System.Drawing.Size(67, 62);
+            this.rjButtons1.TabIndex = 19;
+            this.rjButtons1.Text = " +";
+            this.rjButtons1.UseVisualStyleBackColor = false;
             // 
             // Backlog
             // 
