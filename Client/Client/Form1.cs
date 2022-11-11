@@ -13,7 +13,6 @@ namespace Client {
 
     public partial class Backlog : Form {
         public bool[] stato = new bool[3];
-        //public int[] id = new int[4];
 
         public Backlog() {
             InitializeComponent();
