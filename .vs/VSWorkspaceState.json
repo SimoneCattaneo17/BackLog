@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Client",
+    "\\Client\\Client"
   ],
+  "SelectedNode": "\\Client\\Client\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }

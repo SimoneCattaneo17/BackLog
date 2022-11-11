@@ -47,10 +47,10 @@ namespace Client
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.rjButtons5 = new Client.RJButtons();
-            this.rjButtons4 = new Client.RJButtons();
-            this.rjButtons3 = new Client.RJButtons();
-            this.rjButtons2 = new Client.RJButtons();
+            this.bottone3 = new Client.RJButtons();
+            this.bottone2 = new Client.RJButtons();
+            this.bottone1 = new Client.RJButtons();
+            this.bottone0 = new Client.RJButtons();
             this.rjButtons1 = new Client.RJButtons();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -74,7 +74,7 @@ namespace Client
             // 
             this.pictureBox1.Image = global::Client.Properties.Resources._default;
             this.pictureBox1.Location = new System.Drawing.Point(16, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 92);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -105,8 +105,8 @@ namespace Client
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(301, 15);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(319, 86);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(123, 135);
             this.pictureBox2.TabIndex = 4;
@@ -114,8 +114,8 @@ namespace Client
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(453, 15);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(471, 86);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(123, 135);
             this.pictureBox3.TabIndex = 5;
@@ -123,8 +123,8 @@ namespace Client
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(607, 15);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Location = new System.Drawing.Point(625, 86);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(123, 135);
             this.pictureBox4.TabIndex = 6;
@@ -132,8 +132,8 @@ namespace Client
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(913, 15);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Location = new System.Drawing.Point(931, 86);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(123, 135);
             this.pictureBox6.TabIndex = 8;
@@ -141,8 +141,8 @@ namespace Client
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(761, 15);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox7.Location = new System.Drawing.Point(779, 86);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(123, 135);
             this.pictureBox7.TabIndex = 7;
@@ -150,8 +150,8 @@ namespace Client
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(913, 174);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Location = new System.Drawing.Point(931, 245);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(123, 135);
             this.pictureBox5.TabIndex = 13;
@@ -159,8 +159,8 @@ namespace Client
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(761, 174);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox8.Location = new System.Drawing.Point(779, 245);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(123, 135);
             this.pictureBox8.TabIndex = 12;
@@ -168,8 +168,8 @@ namespace Client
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(607, 174);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox9.Location = new System.Drawing.Point(625, 245);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(123, 135);
             this.pictureBox9.TabIndex = 11;
@@ -177,8 +177,8 @@ namespace Client
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Location = new System.Drawing.Point(453, 174);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox10.Location = new System.Drawing.Point(471, 245);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(123, 135);
             this.pictureBox10.TabIndex = 10;
@@ -186,8 +186,8 @@ namespace Client
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Location = new System.Drawing.Point(301, 174);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox11.Location = new System.Drawing.Point(319, 245);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(123, 135);
             this.pictureBox11.TabIndex = 9;
@@ -195,8 +195,8 @@ namespace Client
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Location = new System.Drawing.Point(913, 331);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox12.Location = new System.Drawing.Point(931, 402);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(123, 135);
             this.pictureBox12.TabIndex = 18;
@@ -204,8 +204,8 @@ namespace Client
             // 
             // pictureBox13
             // 
-            this.pictureBox13.Location = new System.Drawing.Point(761, 331);
-            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox13.Location = new System.Drawing.Point(779, 402);
+            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(123, 135);
             this.pictureBox13.TabIndex = 17;
@@ -213,8 +213,8 @@ namespace Client
             // 
             // pictureBox14
             // 
-            this.pictureBox14.Location = new System.Drawing.Point(607, 331);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox14.Location = new System.Drawing.Point(625, 402);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(123, 135);
             this.pictureBox14.TabIndex = 16;
@@ -222,8 +222,8 @@ namespace Client
             // 
             // pictureBox15
             // 
-            this.pictureBox15.Location = new System.Drawing.Point(453, 331);
-            this.pictureBox15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox15.Location = new System.Drawing.Point(471, 402);
+            this.pictureBox15.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(123, 135);
             this.pictureBox15.TabIndex = 15;
@@ -231,68 +231,72 @@ namespace Client
             // 
             // pictureBox16
             // 
-            this.pictureBox16.Location = new System.Drawing.Point(301, 331);
-            this.pictureBox16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox16.Location = new System.Drawing.Point(319, 402);
+            this.pictureBox16.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(123, 135);
             this.pictureBox16.TabIndex = 14;
             this.pictureBox16.TabStop = false;
             // 
-            // rjButtons5
+            // bottone3
             // 
-            this.rjButtons5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.rjButtons5.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButtons5.FlatAppearance.BorderSize = 0;
-            this.rjButtons5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButtons5.ForeColor = System.Drawing.Color.White;
-            this.rjButtons5.Location = new System.Drawing.Point(16, 363);
-            this.rjButtons5.Name = "rjButtons5";
-            this.rjButtons5.Size = new System.Drawing.Size(249, 40);
-            this.rjButtons5.TabIndex = 23;
-            this.rjButtons5.Text = "Ricerca utente";
-            this.rjButtons5.UseVisualStyleBackColor = false;
+            this.bottone3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.bottone3.BackColor = System.Drawing.Color.White;
+            this.bottone3.FlatAppearance.BorderSize = 0;
+            this.bottone3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bottone3.ForeColor = System.Drawing.Color.Black;
+            this.bottone3.Location = new System.Drawing.Point(319, 12);
+            this.bottone3.Name = "bottone3";
+            this.bottone3.Size = new System.Drawing.Size(662, 62);
+            this.bottone3.TabIndex = 23;
+            this.bottone3.Text = "Ricerca utente";
+            this.bottone3.UseVisualStyleBackColor = false;
+            this.bottone3.Click += new System.EventHandler(this.rjButtons5_Click);
             // 
-            // rjButtons4
+            // bottone2
             // 
-            this.rjButtons4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.rjButtons4.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButtons4.FlatAppearance.BorderSize = 0;
-            this.rjButtons4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButtons4.ForeColor = System.Drawing.Color.White;
-            this.rjButtons4.Location = new System.Drawing.Point(16, 303);
-            this.rjButtons4.Name = "rjButtons4";
-            this.rjButtons4.Size = new System.Drawing.Size(249, 40);
-            this.rjButtons4.TabIndex = 22;
-            this.rjButtons4.Text = "In programma";
-            this.rjButtons4.UseVisualStyleBackColor = false;
+            this.bottone2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.bottone2.BackColor = System.Drawing.Color.Black;
+            this.bottone2.FlatAppearance.BorderSize = 0;
+            this.bottone2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bottone2.ForeColor = System.Drawing.Color.White;
+            this.bottone2.Location = new System.Drawing.Point(16, 311);
+            this.bottone2.Name = "bottone2";
+            this.bottone2.Size = new System.Drawing.Size(249, 47);
+            this.bottone2.TabIndex = 22;
+            this.bottone2.Text = "In programma";
+            this.bottone2.UseVisualStyleBackColor = false;
+            this.bottone2.Click += new System.EventHandler(this.rjButtons4_Click);
             // 
-            // rjButtons3
+            // bottone1
             // 
-            this.rjButtons3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.rjButtons3.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButtons3.FlatAppearance.BorderSize = 0;
-            this.rjButtons3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButtons3.ForeColor = System.Drawing.Color.White;
-            this.rjButtons3.Location = new System.Drawing.Point(16, 238);
-            this.rjButtons3.Name = "rjButtons3";
-            this.rjButtons3.Size = new System.Drawing.Size(249, 40);
-            this.rjButtons3.TabIndex = 21;
-            this.rjButtons3.Text = "In corso";
-            this.rjButtons3.UseVisualStyleBackColor = false;
+            this.bottone1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.bottone1.BackColor = System.Drawing.Color.Black;
+            this.bottone1.FlatAppearance.BorderSize = 0;
+            this.bottone1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bottone1.ForeColor = System.Drawing.Color.White;
+            this.bottone1.Location = new System.Drawing.Point(16, 242);
+            this.bottone1.Name = "bottone1";
+            this.bottone1.Size = new System.Drawing.Size(249, 47);
+            this.bottone1.TabIndex = 21;
+            this.bottone1.Text = "In corso";
+            this.bottone1.UseVisualStyleBackColor = false;
+            this.bottone1.Click += new System.EventHandler(this.rjButtons3_Click);
             // 
-            // rjButtons2
+            // bottone0
             // 
-            this.rjButtons2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.rjButtons2.BackColor = System.Drawing.Color.Yellow;
-            this.rjButtons2.FlatAppearance.BorderSize = 0;
-            this.rjButtons2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButtons2.ForeColor = System.Drawing.Color.Black;
-            this.rjButtons2.Location = new System.Drawing.Point(16, 174);
-            this.rjButtons2.Name = "rjButtons2";
-            this.rjButtons2.Size = new System.Drawing.Size(249, 40);
-            this.rjButtons2.TabIndex = 20;
-            this.rjButtons2.Text = "Completato";
-            this.rjButtons2.UseVisualStyleBackColor = false;
+            this.bottone0.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.bottone0.BackColor = System.Drawing.Color.Black;
+            this.bottone0.FlatAppearance.BorderSize = 0;
+            this.bottone0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bottone0.ForeColor = System.Drawing.Color.White;
+            this.bottone0.Location = new System.Drawing.Point(16, 174);
+            this.bottone0.Name = "bottone0";
+            this.bottone0.Size = new System.Drawing.Size(249, 47);
+            this.bottone0.TabIndex = 20;
+            this.bottone0.Text = "Completato";
+            this.bottone0.UseVisualStyleBackColor = false;
+            this.bottone0.Click += new System.EventHandler(this.rjButtons2_Click);
             // 
             // rjButtons1
             // 
@@ -302,7 +306,7 @@ namespace Client
             this.rjButtons1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButtons1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButtons1.ForeColor = System.Drawing.Color.White;
-            this.rjButtons1.Location = new System.Drawing.Point(969, 480);
+            this.rjButtons1.Location = new System.Drawing.Point(987, 12);
             this.rjButtons1.Name = "rjButtons1";
             this.rjButtons1.Size = new System.Drawing.Size(67, 62);
             this.rjButtons1.TabIndex = 19;
@@ -315,10 +319,10 @@ namespace Client
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.rjButtons5);
-            this.Controls.Add(this.rjButtons4);
-            this.Controls.Add(this.rjButtons3);
-            this.Controls.Add(this.rjButtons2);
+            this.Controls.Add(this.bottone3);
+            this.Controls.Add(this.bottone2);
+            this.Controls.Add(this.bottone1);
+            this.Controls.Add(this.bottone0);
             this.Controls.Add(this.rjButtons1);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox13);
@@ -338,7 +342,7 @@ namespace Client
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Backlog";
             this.Text = "Backlog";
             this.Load += new System.EventHandler(this.Backlog_Load);
@@ -384,10 +388,10 @@ namespace Client
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox16;
         private RJButtons rjButtons1;
-        private RJButtons rjButtons2;
-        private RJButtons rjButtons3;
-        private RJButtons rjButtons4;
-        private RJButtons rjButtons5;
+        private RJButtons bottone0;
+        private RJButtons bottone1;
+        private RJButtons bottone2;
+        private RJButtons bottone3;
     }
 }
 
