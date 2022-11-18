@@ -26,6 +26,7 @@ namespace Client {
             //queste righe sono solo di dimostrazione
             if (File.Exists("../../Utenti/" + textBox1.Text + ".TXT")) {
                 panel1.Visible = true;
+                //caricamento dati base come nome e immagine
             }
             else {
                 MessageBox.Show("L'utente " + textBox1.Text + " non esiste.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -34,14 +35,17 @@ namespace Client {
 
         private void bottone0_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone0, 0);
+            //caricamento delle copertine
         }
 
         private void bottone1_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone1, 1);
+            //caricamento delle copertine
         }
 
         private void bottone2_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone2, 2);
+            //caricamento delle copertine
         }
 
         private void buttons(ref bool[] stato, ref RJButtons button, int id) {

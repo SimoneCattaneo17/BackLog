@@ -1,0 +1,15 @@
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\bin\Debug\net6.0\Server.exe
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\bin\Debug\net6.0\Server.deps.json
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\bin\Debug\net6.0\Server.runtimeconfig.json
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\bin\Debug\net6.0\Server.dll
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\bin\Debug\net6.0\ref\Server.dll
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\bin\Debug\net6.0\Server.pdb
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\obj\Debug\net6.0\Server.csproj.AssemblyReference.cache
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\obj\Debug\net6.0\Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\obj\Debug\net6.0\Server.AssemblyInfoInputs.cache
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\obj\Debug\net6.0\Server.AssemblyInfo.cs
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\obj\Debug\net6.0\Server.csproj.CoreCompileInputs.cache
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\obj\Debug\net6.0\Server.dll
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\obj\Debug\net6.0\ref\Server.dll
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\obj\Debug\net6.0\Server.pdb
+C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Server\Server\obj\Debug\net6.0\Server.genruntimeconfig.cache

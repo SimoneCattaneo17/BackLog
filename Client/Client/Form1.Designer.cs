@@ -116,7 +116,7 @@ namespace Client
             this.bottone3.FlatAppearance.BorderSize = 0;
             this.bottone3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bottone3.ForeColor = System.Drawing.Color.Black;
-            this.bottone3.Location = new System.Drawing.Point(326, 38);
+            this.bottone3.Location = new System.Drawing.Point(320, 12);
             this.bottone3.Name = "bottone3";
             this.bottone3.Size = new System.Drawing.Size(662, 62);
             this.bottone3.TabIndex = 46;
@@ -131,7 +131,7 @@ namespace Client
             this.bottone2.FlatAppearance.BorderSize = 0;
             this.bottone2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bottone2.ForeColor = System.Drawing.Color.White;
-            this.bottone2.Location = new System.Drawing.Point(23, 337);
+            this.bottone2.Location = new System.Drawing.Point(17, 311);
             this.bottone2.Name = "bottone2";
             this.bottone2.Size = new System.Drawing.Size(249, 47);
             this.bottone2.TabIndex = 45;
@@ -146,7 +146,7 @@ namespace Client
             this.bottone1.FlatAppearance.BorderSize = 0;
             this.bottone1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bottone1.ForeColor = System.Drawing.Color.White;
-            this.bottone1.Location = new System.Drawing.Point(23, 268);
+            this.bottone1.Location = new System.Drawing.Point(17, 242);
             this.bottone1.Name = "bottone1";
             this.bottone1.Size = new System.Drawing.Size(249, 47);
             this.bottone1.TabIndex = 44;
@@ -161,7 +161,7 @@ namespace Client
             this.bottone0.FlatAppearance.BorderSize = 0;
             this.bottone0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bottone0.ForeColor = System.Drawing.Color.White;
-            this.bottone0.Location = new System.Drawing.Point(23, 200);
+            this.bottone0.Location = new System.Drawing.Point(17, 174);
             this.bottone0.Name = "bottone0";
             this.bottone0.Size = new System.Drawing.Size(249, 47);
             this.bottone0.TabIndex = 43;
@@ -177,7 +177,7 @@ namespace Client
             this.rjButtons1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButtons1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButtons1.ForeColor = System.Drawing.Color.White;
-            this.rjButtons1.Location = new System.Drawing.Point(994, 38);
+            this.rjButtons1.Location = new System.Drawing.Point(988, 12);
             this.rjButtons1.Name = "rjButtons1";
             this.rjButtons1.Size = new System.Drawing.Size(67, 62);
             this.rjButtons1.TabIndex = 42;
@@ -187,7 +187,7 @@ namespace Client
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Location = new System.Drawing.Point(938, 428);
+            this.pictureBox12.Location = new System.Drawing.Point(932, 402);
             this.pictureBox12.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(123, 135);
@@ -196,7 +196,7 @@ namespace Client
             // 
             // pictureBox13
             // 
-            this.pictureBox13.Location = new System.Drawing.Point(786, 428);
+            this.pictureBox13.Location = new System.Drawing.Point(780, 402);
             this.pictureBox13.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(123, 135);
@@ -205,7 +205,7 @@ namespace Client
             // 
             // pictureBox14
             // 
-            this.pictureBox14.Location = new System.Drawing.Point(632, 428);
+            this.pictureBox14.Location = new System.Drawing.Point(626, 402);
             this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(123, 135);
@@ -214,7 +214,7 @@ namespace Client
             // 
             // pictureBox15
             // 
-            this.pictureBox15.Location = new System.Drawing.Point(478, 428);
+            this.pictureBox15.Location = new System.Drawing.Point(472, 402);
             this.pictureBox15.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(123, 135);
@@ -223,7 +223,7 @@ namespace Client
             // 
             // pictureBox16
             // 
-            this.pictureBox16.Location = new System.Drawing.Point(326, 428);
+            this.pictureBox16.Location = new System.Drawing.Point(320, 402);
             this.pictureBox16.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(123, 135);
@@ -232,7 +232,7 @@ namespace Client
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(938, 271);
+            this.pictureBox5.Location = new System.Drawing.Point(932, 245);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(123, 135);
@@ -241,7 +241,7 @@ namespace Client
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(786, 271);
+            this.pictureBox8.Location = new System.Drawing.Point(780, 245);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(123, 135);
@@ -250,7 +250,7 @@ namespace Client
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(632, 271);
+            this.pictureBox9.Location = new System.Drawing.Point(626, 245);
             this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(123, 135);
@@ -259,7 +259,7 @@ namespace Client
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Location = new System.Drawing.Point(478, 271);
+            this.pictureBox10.Location = new System.Drawing.Point(472, 245);
             this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(123, 135);
@@ -268,7 +268,7 @@ namespace Client
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Location = new System.Drawing.Point(326, 271);
+            this.pictureBox11.Location = new System.Drawing.Point(320, 245);
             this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(123, 135);
@@ -277,7 +277,7 @@ namespace Client
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(938, 112);
+            this.pictureBox6.Location = new System.Drawing.Point(932, 86);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(123, 135);
@@ -286,7 +286,7 @@ namespace Client
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(786, 112);
+            this.pictureBox7.Location = new System.Drawing.Point(780, 86);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(123, 135);
@@ -295,7 +295,7 @@ namespace Client
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(632, 112);
+            this.pictureBox4.Location = new System.Drawing.Point(626, 86);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(123, 135);
@@ -304,7 +304,7 @@ namespace Client
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(478, 112);
+            this.pictureBox3.Location = new System.Drawing.Point(472, 86);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(123, 135);
@@ -313,7 +313,7 @@ namespace Client
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(326, 112);
+            this.pictureBox2.Location = new System.Drawing.Point(320, 86);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(123, 135);
@@ -324,7 +324,7 @@ namespace Client
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(147, 72);
+            this.label2.Location = new System.Drawing.Point(141, 46);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 16);
@@ -335,7 +335,7 @@ namespace Client
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(147, 41);
+            this.label1.Location = new System.Drawing.Point(141, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 16);
@@ -345,7 +345,7 @@ namespace Client
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Client.Properties.Resources._default;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 41);
+            this.pictureBox1.Location = new System.Drawing.Point(17, 15);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 92);
