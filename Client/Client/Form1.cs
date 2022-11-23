@@ -17,6 +17,11 @@ namespace Client {
     public partial class Backlog : Form {
         Socket socket;
         byte[] bytes;
+        public static string data;
+
+        byte[] msg;
+        int bytesSent;
+        int bytesRec;
 
         public bool[] stato = new bool[3];
         public string activeUser { get; set;}
@@ -28,67 +33,36 @@ namespace Client {
 
             startclient(this);
         }
-
-        //non so se ha senso
         public static void startclient(Backlog B) {
             B.bytes = new byte[1024];
-
-            try {
-                IPAddress ipAddress = System.Net.IPAddress.Parse("127.0.0.1");
-                IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
-
-                B.socket = new Socket(ipAddress.AddressFamily,
-                    SocketType.Stream, ProtocolType.Tcp);
-
+            while (true) {
                 try {
-                    B.socket.Connect(remoteEP);
-                    Console.WriteLine("Socket connected to {0}",
-                        B.socket.RemoteEndPoint.ToString());
-                }
-                catch (ArgumentNullException ane) {
-                    Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
-                }
-                catch (SocketException se) {
-                    Console.WriteLine("SocketException : {0}", se.ToString());
+                    IPAddress ipAddress = System.Net.IPAddress.Parse("127.0.0.1");
+                    IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
+
+                    B.socket = new Socket(ipAddress.AddressFamily,
+                        SocketType.Stream, ProtocolType.Tcp);
+
+                    try {
+                        B.socket.Connect(remoteEP);
+                        Console.WriteLine("Socket connected to {0}",
+                            B.socket.RemoteEndPoint.ToString());
+
+                        Console.WriteLine("Connected");
+                    }
+                    catch (ArgumentNullException ane) {
+                        Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
+                    }
+                    catch (SocketException se) {
+                        Console.WriteLine("SocketException : {0}", se.ToString());
+                    }
+                    catch (Exception e) {
+                        Console.WriteLine("Unexpected exception : {0}", e.ToString());
+                    }
+                    break;
                 }
                 catch (Exception e) {
-                    Console.WriteLine("Unexpected exception : {0}", e.ToString());
-                }
-            }
-            catch (Exception e) {
-                Console.WriteLine(e.ToString());
-            }
-        }
-
-        private void Backlog_Load(object sender, EventArgs e) {
-            for(int i = 0; i < stato.Length; i++) {
-                stato[i] = false;
-            }
-        }
-
-        private void buttons(ref bool[] stato, ref RJButtons button, int id) {
-            if (!stato[id]) {
-                button.BackColor = Color.MediumSlateBlue;
-                stato[id] = true;
-                //vedere di usare altro al posto di uno switch che fa schifo
-                switch (id) {
-                    case 0:
-                        bottone1.BackColor = Color.Black;
-                        bottone2.BackColor = Color.Black;
-                        break;
-                    case 1:
-                        bottone0.BackColor = Color.Black;
-                        bottone2.BackColor = Color.Black;
-                        break;
-                    case 2:
-                        bottone0.BackColor = Color.Black;
-                        bottone1.BackColor = Color.Black;
-                        break;
-                }
-                for(int i = 0; i < 3; i++) {
-                    if(i != id) {
-                        stato[i] = false;
-                    }
+                    Console.WriteLine(e.ToString());
                 }
             }
         }
@@ -97,16 +71,30 @@ namespace Client {
             bool success = false;
             string[] str = new string[3];
 
-            //verifica da far fare al server
-            foreach (string line in File.ReadLines("../../Login.TXT")) {
-                //[0] = username, [1] = nickname, [2] = password
-                str = line.Split(',');
-                if (str[0] == textBox1.Text && str[2] == textBox2.Text) {
-                    activeUser = str[0];
+            if(textBox1.Text != null && textBox2.Text != null) {
+                msg = Encoding.ASCII.GetBytes(textBox1.Text + ';' + textBox2.Text + ';' + "0" + ".");
+
+                bytesSent = socket.Send(msg);
+
+                //problema qui quando si sbaglia il login e si riprova
+                bytesRec = socket.Receive(bytes);
+
+                //Console.WriteLine(Encoding.ASCII.GetString(bytes, 0, bytesRec));
+
+                data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                str = data.ToString().Split(';');
+
+                Console.WriteLine(str[0]);
+                Console.WriteLine(str[1]);
+
+                if(str[0] == "True") {
+                    activeUser = textBox1.Text;
                     activeNick = str[1];
                     success = true;
-                    break;
                 }
+
+                //socket.Shutdown(SocketShutdown.Both);
+                //socket.Close();
             }
 
             if (success) {
@@ -144,6 +132,43 @@ namespace Client {
         private void rjButtons1_Click(object sender, EventArgs e) {
             //prendere dal server la lista di giochi attualmente presenti nell'archivio
             //mandare il gioco scelto al server
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e) {
+
+        }
+
+        private void Backlog_Load(object sender, EventArgs e) {
+            for (int i = 0; i < stato.Length; i++) {
+                stato[i] = false;
+            }
+        }
+
+        private void buttons(ref bool[] stato, ref RJButtons button, int id) {
+            if (!stato[id]) {
+                button.BackColor = Color.MediumSlateBlue;
+                stato[id] = true;
+                //vedere di usare altro al posto di uno switch che fa schifo
+                switch (id) {
+                    case 0:
+                        bottone1.BackColor = Color.Black;
+                        bottone2.BackColor = Color.Black;
+                        break;
+                    case 1:
+                        bottone0.BackColor = Color.Black;
+                        bottone2.BackColor = Color.Black;
+                        break;
+                    case 2:
+                        bottone0.BackColor = Color.Black;
+                        bottone1.BackColor = Color.Black;
+                        break;
+                }
+                for (int i = 0; i < 3; i++) {
+                    if (i != id) {
+                        stato[i] = false;
+                    }
+                }
+            }
         }
     }
 }
