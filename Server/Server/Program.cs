@@ -49,6 +49,7 @@ public class Server {
                         login(str, msgSplit, success, handler);
                         break;
                     case "1":
+                        completati(str, msgSplit, handler);
                         //giochi completati                      
                         break;
                     case "2":
@@ -61,6 +62,9 @@ public class Server {
                         //ricerca utente
                         break;
                 }
+
+                handler.Shutdown(SocketShutdown.Both);
+                handler.Close();
             }
 
         }
@@ -96,8 +100,25 @@ public class Server {
         byte[] msg = Encoding.ASCII.GetBytes(Convert.ToString(success) + ';' + str[1]);
 
         handler.Send(msg);
-        handler.Shutdown(SocketShutdown.Both);
-        handler.Close();
+        //handler.Shutdown(SocketShutdown.Both);
+        //handler.Close();
         //success = false;
+    }
+
+    public static void completati(string[] str, string[] msgSplit, Socket handler) {
+        byte[] msg;
+        string path = "../../../Utenti/Completato" + msgSplit[0] + ".TXT";
+
+        foreach (string line in File.ReadLines(path)) {
+            msg = Encoding.ASCII.GetBytes(line);
+
+            handler.Send(msg);
+        }
+        msg = Encoding.ASCII.GetBytes("<EOF>");
+
+        handler.Send(msg);
+
+        //handler.Shutdown(SocketShutdown.Both);
+        //handler.Close();
     }
 }

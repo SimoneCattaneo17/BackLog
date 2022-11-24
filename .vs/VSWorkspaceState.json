@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Client",
-    "\\Client\\Client"
+    "\\Client\\Client",
+    "\\Server"
   ],
-  "SelectedNode": "\\Client\\Client\\Form2.cs",
+  "SelectedNode": "\\Client\\Client\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }

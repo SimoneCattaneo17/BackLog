@@ -23,6 +23,8 @@ namespace Client {
         int bytesSent;
         int bytesRec;
 
+        string[] str = new string[3];
+
         public bool[] stato = new bool[3];
         public string activeUser { get; set;}
         public string activeNick { get; set; }
@@ -69,23 +71,16 @@ namespace Client {
 
         private void Login_Click(object sender, EventArgs e) {
             bool success = false;
-            string[] str = new string[3];
 
             if(textBox1.Text != null && textBox2.Text != null) {
                 msg = Encoding.ASCII.GetBytes(textBox1.Text + ';' + textBox2.Text + ';' + "0" + ".");
-
                 bytesSent = socket.Send(msg);
 
                 //problema qui quando si sbaglia il login e si riprova
                 bytesRec = socket.Receive(bytes);
 
-                //Console.WriteLine(Encoding.ASCII.GetString(bytes, 0, bytesRec));
-
-                data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
                 str = data.ToString().Split(';');
-
-                Console.WriteLine(str[0]);
-                Console.WriteLine(str[1]);
 
                 if(str[0] == "True") {
                     activeUser = textBox1.Text;
@@ -107,21 +102,63 @@ namespace Client {
                 textBox1.Text = "";
                 textBox2.Text = "";
             }
+
+            //socket.Shutdown(SocketShutdown.Both);
+            //socket.Close();
         }
 
         private void bottone0_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone0, 0);
-            //caricamento delle copertine
+
+            msg = Encoding.ASCII.GetBytes(activeUser + ';' + activeNick + ';' + "1" + ".");
+
+            bytesSent = socket.Send(msg);
+
+            bytesRec = socket.Receive(bytes);
+            
+            data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+            while (true) {
+                bytesRec = socket.Receive(bytes);
+
+                data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+
+                if (data != "<EOF>") {
+                    //str = data.ToString().Split(';');
+                    //per provare scrivo tutto su file per ora
+                    File.AppendAllText("./" + activeUser, data);
+                }
+                else {
+                    break;
+                }
+            }
+
+            /*
+            while (true) {
+                bytesRec = socket.Receive(bytes);
+
+                data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                str = data.ToString().Split(';');
+
+                File.AppendAllText("./prova", data);
+            }
+            */
+
+            //socket.Shutdown(SocketShutdown.Both);
+            //socket.Close();
         }
 
         private void bottone1_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone1, 1);
-            //caricamento delle copertine
+            msg = Encoding.ASCII.GetBytes(activeUser + ';' + activeNick + ';' + "2" + ".");
+
+            bytesSent = socket.Send(msg);
         }
 
         private void bottone2_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone2, 2);
-            //caricamento delle copertine
+            msg = Encoding.ASCII.GetBytes(activeUser + ';' + activeNick + ';' + "3" + ".");
+
+            bytesSent = socket.Send(msg);
         }
 
         private void bottone3_Click(object sender, EventArgs e) {
