@@ -37,47 +37,46 @@ namespace Client {
         }
         public static void startclient(Backlog B) {
             B.bytes = new byte[1024];
-            while (true) {
+            try {
+                IPAddress ipAddress = System.Net.IPAddress.Parse("127.0.0.1");
+                IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
+
+                B.socket = new Socket(ipAddress.AddressFamily,
+                    SocketType.Stream, ProtocolType.Tcp);
+
                 try {
-                    IPAddress ipAddress = System.Net.IPAddress.Parse("127.0.0.1");
-                    IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
+                    B.socket.Connect(remoteEP);
+                    Console.WriteLine("Socket connected to {0}",
+                        B.socket.RemoteEndPoint.ToString());
 
-                    B.socket = new Socket(ipAddress.AddressFamily,
-                        SocketType.Stream, ProtocolType.Tcp);
-
-                    try {
-                        B.socket.Connect(remoteEP);
-                        Console.WriteLine("Socket connected to {0}",
-                            B.socket.RemoteEndPoint.ToString());
-
-                        Console.WriteLine("Connected");
-                    }
-                    catch (ArgumentNullException ane) {
-                        Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
-                    }
-                    catch (SocketException se) {
-                        Console.WriteLine("SocketException : {0}", se.ToString());
-                    }
-                    catch (Exception e) {
-                        Console.WriteLine("Unexpected exception : {0}", e.ToString());
-                    }
-                    break;
+                    Console.WriteLine("Connected");
+                }
+                catch (ArgumentNullException ane) {
+                    Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
+                }
+                catch (SocketException se) {
+                    Console.WriteLine("SocketException : {0}", se.ToString());
                 }
                 catch (Exception e) {
-                    Console.WriteLine(e.ToString());
+                    Console.WriteLine("Unexpected exception : {0}", e.ToString());
                 }
+                //break;
+            }
+            catch (Exception e) {
+                Console.WriteLine(e.ToString());
             }
         }
 
         private void Login_Click(object sender, EventArgs e) {
             bool success = false;
-
-            if(textBox1.Text != null && textBox2.Text != null) {
+            
+            if (textBox1.Text != null && textBox2.Text != null) {
                 msg = Encoding.ASCII.GetBytes(textBox1.Text + ';' + textBox2.Text + ';' + "0" + ".");
+                Console.WriteLine("stringa inviata: " + msg);
                 bytesSent = socket.Send(msg);
 
-                //problema qui quando si sbaglia il login e si riprova
                 bytesRec = socket.Receive(bytes);
+                
 
                 data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
                 str = data.ToString().Split(';');
@@ -87,9 +86,6 @@ namespace Client {
                     activeNick = str[1];
                     success = true;
                 }
-
-                //socket.Shutdown(SocketShutdown.Both);
-                //socket.Close();
             }
 
             if (success) {
@@ -110,6 +106,9 @@ namespace Client {
         private void bottone0_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone0, 0);
 
+            //ricerca("1");
+            
+            ///*
             msg = Encoding.ASCII.GetBytes(activeUser + ';' + activeNick + ';' + "1" + ".");
 
             bytesSent = socket.Send(msg);
@@ -122,43 +121,32 @@ namespace Client {
 
                 data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
 
+                //provare anche a passare tutto il file in una volta
                 if (data != "<EOF>") {
                     //str = data.ToString().Split(';');
                     //per provare scrivo tutto su file per ora
-                    File.AppendAllText("./" + activeUser, data);
+                    //File.AppendAllText("./" + activeUser + "_Completato" + ".TXT", data);
+                    Console.WriteLine(data);
                 }
                 else {
                     break;
                 }
             }
-
-            /*
-            while (true) {
-                bytesRec = socket.Receive(bytes);
-
-                data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                str = data.ToString().Split(';');
-
-                File.AppendAllText("./prova", data);
-            }
-            */
-
             //socket.Shutdown(SocketShutdown.Both);
             //socket.Close();
+            //*/
         }
 
         private void bottone1_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone1, 1);
-            msg = Encoding.ASCII.GetBytes(activeUser + ';' + activeNick + ';' + "2" + ".");
 
-            bytesSent = socket.Send(msg);
+            //ricerca("2");
         }
 
         private void bottone2_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone2, 2);
-            msg = Encoding.ASCII.GetBytes(activeUser + ';' + activeNick + ';' + "3" + ".");
 
-            bytesSent = socket.Send(msg);
+            //ricerca("3");
         }
 
         private void bottone3_Click(object sender, EventArgs e) {
@@ -206,6 +194,36 @@ namespace Client {
                     }
                 }
             }
+        }
+
+        private void ricerca(string n) {
+            msg = Encoding.ASCII.GetBytes(activeUser + ';' + activeNick + ';' + n + ".");
+
+            bytesSent = socket.Send(msg);
+
+            bytesRec = socket.Receive(bytes);
+
+            data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+            while (true) {
+                bytesRec = socket.Receive(bytes);
+
+                data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+
+                if (data != "<EOF>") {
+                    //str = data.ToString().Split(';');
+                    //per provare scrivo tutto su file per ora
+                    File.AppendAllText("./" + activeUser + ".TXT", data);
+                }
+                else {
+                    break;
+                }
+            }
+        }
+
+        private void Backlog_FormClosing(object sender, FormClosingEventArgs e) {
+            msg = Encoding.ASCII.GetBytes(" ; ;5.");
+
+            bytesSent = socket.Send(msg);
         }
     }
 }
