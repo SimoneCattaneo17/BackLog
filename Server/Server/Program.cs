@@ -11,7 +11,7 @@ public class Server {
     public static string data = null;
 
     public static void StartListening() {
-        byte[] bytes = new Byte[1024];
+        byte[] bytes = new Byte[100000];
 
         
 
@@ -55,7 +55,7 @@ public class Server {
         bool success = false;
         string[] str = new string[3];
         Socket handler;
-        byte[] bytes = new Byte[1024];
+        byte[] bytes = new Byte[100000];
         String data = "";
 
         public ClientManager(Socket clientSocket) {
@@ -130,15 +130,20 @@ public class Server {
 
             handler.Send(msg);
 
-            //inizia qui
+            string fileName = "../../../Utenti/propic/" + str[0] + ".png";
+            TcpClient tcpClient = new TcpClient("127.0.0.1", 1234);
+            StreamWriter sWriter = new StreamWriter(tcpClient.GetStream());
+            bytes = File.ReadAllBytes(fileName);
 
-            byte[] msg2 = File.ReadAllBytes("../../../Utenti/propic/" + str[0] + ".png");
+            sWriter.WriteLine(bytes.Length.ToString());
+            sWriter.Flush();
 
-            handler.Send(msg2);
+            sWriter.WriteLine("./propic.png");
+            sWriter.Flush();
 
-            //MemoryStream ms = new MemoryStream(msg2);
+            tcpClient.Client.SendFile(fileName);
 
-            //handler.SendFile("../../../Utenti/propic/" + str[0] + ".png");
+            tcpClient.Close();
         }
 
         public void ricerca(Socket handler, string path) {

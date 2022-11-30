@@ -17,6 +17,7 @@ namespace Client {
     public partial class Backlog : Form {
         Socket socket;
         byte[] bytes;
+        byte[] bytes2;
         public static string data;
 
         byte[] msg;
@@ -36,7 +37,8 @@ namespace Client {
             startclient(this);
         }
         public static void startclient(Backlog B) {
-            B.bytes = new byte[1024];
+            B.bytes = new byte[100000];
+            B.bytes2 = new byte[100000];
             try {
                 IPAddress ipAddress = System.Net.IPAddress.Parse("127.0.0.1");
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
@@ -66,7 +68,7 @@ namespace Client {
 
         private void Login_Click(object sender, EventArgs e) {
             bool success = false;
-            
+
             if (textBox1.Text != null && textBox2.Text != null) {
                 msg = Encoding.ASCII.GetBytes(textBox1.Text + ';' + textBox2.Text + ';' + "0" + ".");
                 bytesSent = socket.Send(msg);
@@ -76,40 +78,44 @@ namespace Client {
                 data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
                 str = data.ToString().Split(';');
 
-                //inizia qui
-
-                socket.Receive(bytes);
-
-                File.WriteAllBytes("../../propic.png", bytes);
-
-                socket.Receive(bytes);
-
-                /*
-                NetworkStream ns = new NetworkStream(socket);
-                StreamReader sr = new StreamReader(ns);
-                StreamWriter sw = new StreamWriter(ns);
-                */
-
-                /*
-                bytesRec = socket.Receive(bytes);
-
-                MemoryStream ms = new MemoryStream(bytes);
-                Image img = Image.FromStream(ms);
-                img.Save("../../propic.png", System.Drawing.Imaging.ImageFormat.Png);
-                pictureBox1.Image = img;
-                ms.Close();
-
-                */
-
-                ///*using */var writer = new BinaryWriter(File.OpenWrite("../../propic.png"));
-                //writer.Write(bytesRec);
-
-                //File.WriteAllBytes("../../propic.png", bytesRec);
-
                 if (str[0] == "True") {
                     activeUser = textBox1.Text;
                     activeNick = str[1];
                     success = true;
+                }
+
+                TcpListener tcpListener = new TcpListener(IPAddress.Any, 1234);
+                tcpListener.Start();
+
+                TcpClient tcpClient = tcpListener.AcceptTcpClient();
+
+                StreamReader reader = new StreamReader(tcpClient.GetStream());
+
+                string cmdFileSize = reader.ReadLine();
+
+                string cmdFileName = reader.ReadLine();
+
+                int length = Convert.ToInt32(cmdFileSize);
+                byte[] buffer = new byte[length];
+                int received = 0;
+                int read = 0;
+                int size = 1024;
+                int remaining = 0;
+
+                while (received < length) {
+                    remaining = length - received;
+                    if (remaining < size) {
+                        size = remaining;
+                    }
+
+                    read = tcpClient.GetStream().Read(buffer, received, size);
+                    received += read;
+                }
+
+                using (FileStream fStream = new FileStream(Path.GetFileName(cmdFileName), FileMode.Create)) {
+                    fStream.Write(buffer, 0, buffer.Length);
+                    fStream.Flush();
+                    fStream.Close();
                 }
             }
 
@@ -117,6 +123,7 @@ namespace Client {
                 label1.Text = activeNick;
                 label2.Text = "@" + activeUser;
                 panel1.Visible = true;
+                pictureBox1.Image = Image.FromFile("./propic.png");
             }
             else {
                 MessageBox.Show("Nome utente o password errati, immetterli nuovamente", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
