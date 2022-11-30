@@ -84,52 +84,61 @@ namespace Client {
                     success = true;
                 }
 
-                TcpListener tcpListener = new TcpListener(IPAddress.Any, 1234);
-                tcpListener.Start();
-
-                TcpClient tcpClient = tcpListener.AcceptTcpClient();
-
-                StreamReader reader = new StreamReader(tcpClient.GetStream());
-
-                string cmdFileSize = reader.ReadLine();
-
-                string cmdFileName = reader.ReadLine();
-
-                int length = Convert.ToInt32(cmdFileSize);
-                byte[] buffer = new byte[length];
-                int received = 0;
-                int read = 0;
-                int size = 1024;
-                int remaining = 0;
-
-                while (received < length) {
-                    remaining = length - received;
-                    if (remaining < size) {
-                        size = remaining;
-                    }
-
-                    read = tcpClient.GetStream().Read(buffer, received, size);
-                    received += read;
-                }
-
-                using (FileStream fStream = new FileStream(Path.GetFileName(cmdFileName), FileMode.Create)) {
-                    fStream.Write(buffer, 0, buffer.Length);
-                    fStream.Flush();
-                    fStream.Close();
-                }
+                pic("../../IMG/propic/propic.png");
             }
 
             if (success) {
                 label1.Text = activeNick;
                 label2.Text = "@" + activeUser;
                 panel1.Visible = true;
-                pictureBox1.Image = Image.FromFile("./propic.png");
+                if(File.Exists("../../IMG/propic/propic.png")) {
+                    pictureBox1.Image = Image.FromFile("../../IMG/propic/propic.png");
+                }
             }
             else {
                 MessageBox.Show("Nome utente o password errati, immetterli nuovamente", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Text = "";
                 textBox2.Text = "";
             }
+        }
+
+        private void pic(string path) {
+            TcpListener tcpListener = new TcpListener(IPAddress.Any, 1234);
+            tcpListener.Start();
+
+            TcpClient tcpClient = tcpListener.AcceptTcpClient();
+
+            StreamReader reader = new StreamReader(tcpClient.GetStream());
+
+            string cmdFileSize = reader.ReadLine();
+
+            string cmdFileName = reader.ReadLine();
+
+            int length = Convert.ToInt32(cmdFileSize);
+            byte[] buffer = new byte[length];
+            int received = 0;
+            int read = 0;
+            int size = 1024;
+            int remaining = 0;
+
+            while (received < length) {
+                remaining = length - received;
+                if (remaining < size) {
+                    size = remaining;
+                }
+
+                read = tcpClient.GetStream().Read(buffer, received, size);
+                received += read;
+            }
+
+            using (FileStream fStream = new FileStream(path, FileMode.Create)) {
+                fStream.Write(buffer, 0, buffer.Length);
+                fStream.Flush();
+                fStream.Close();
+            }
+
+            reader.Close();
+            tcpClient.Close();
         }
 
         private void bottone0_Click(object sender, EventArgs e) {
@@ -222,7 +231,7 @@ namespace Client {
         }
 
         private void Backlog_FormClosing(object sender, FormClosingEventArgs e) {
-            msg = Encoding.ASCII.GetBytes(" ; ;6.");
+            msg = Encoding.ASCII.GetBytes(" ; ;end.");
 
             try {
                 bytesSent = socket.Send(msg);
@@ -245,10 +254,16 @@ namespace Client {
                 string tmp = listBox1.SelectedItem.ToString();
 
                 msg = Encoding.ASCII.GetBytes(activeUser + ';' + tmp + ';' + "5.");
-
                 bytesSent = socket.Send(msg);
 
-                //ricezione immagine del gioco selezionato, gli altri dati sono già nella stringa spezzata dopo averla ricevuta
+                string path = "../../IMG/games/" + listBox1.SelectedItem.ToString() + ".png";
+
+                Console.WriteLine(path);
+
+                pic(path);
+                if (File.Exists(path)) {
+                    pictureBox2.Image = Image.FromFile(path);
+                }
             }
         }
 

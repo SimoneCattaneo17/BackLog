@@ -101,9 +101,10 @@ public class Server {
                         //ricerca utente
                         break;
                     case "5":
-                        selezione();
+                        pic("../../../games/" + msgSplit[1] + ".png");
+                        //selezione();
                         break;
-                    case "6":
+                    case "end":
                         end = true;
                         break;
                 }
@@ -130,20 +131,27 @@ public class Server {
 
             handler.Send(msg);
 
+            //inizia qui
             string fileName = "../../../Utenti/propic/" + str[0] + ".png";
+            pic(fileName);
+        }
+        private void pic(string fileName) {
             TcpClient tcpClient = new TcpClient("127.0.0.1", 1234);
             StreamWriter sWriter = new StreamWriter(tcpClient.GetStream());
-            bytes = File.ReadAllBytes(fileName);
+            if(File.Exists(fileName)) {
+                bytes = File.ReadAllBytes(fileName);
 
-            sWriter.WriteLine(bytes.Length.ToString());
-            sWriter.Flush();
+                sWriter.WriteLine(bytes.Length.ToString());
+                sWriter.Flush();
 
-            sWriter.WriteLine("./propic.png");
-            sWriter.Flush();
+                sWriter.WriteLine("./tmp.png");
+                sWriter.Flush();
 
-            tcpClient.Client.SendFile(fileName);
+                tcpClient.Client.SendFile(fileName);
 
-            tcpClient.Close();
+                sWriter.Close();
+                tcpClient.Close();
+            }
         }
 
         public void ricerca(Socket handler, string path) {
@@ -158,10 +166,6 @@ public class Server {
             handler.Send(msg);
 
             //invio immagini di copertina
-        }
-
-        public void selezione() {
-
         }
     }
 }
