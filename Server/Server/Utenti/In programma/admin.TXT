@@ -1,3 +1,3 @@
-gioco1;descrizione1;genere1;sviluppatore1;voto1
-gioco2;descrizione2;genere2;sviluppatore2;voto2
-gioco3;descrizione3;genere3;sviluppatore3;voto3
+gioco7;descrizione7;genere7;sviluppatore7;voto7
+gioco8;descrizione8;genere8;sviluppatore8;voto8
+gioco9;descrizione9;genere9;sviluppatore9;voto9

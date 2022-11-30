@@ -84,20 +84,23 @@ public class Server {
                         break;
                     case "1":
                         path = "../../../Utenti/Completato/" + msgSplit[0] + ".TXT";
-                        ricerca(str, msgSplit, handler, path);
+                        ricerca(handler, path);
                         break;
                     case "2":
                         path = "../../../Utenti/In corso/" + msgSplit[0] + ".TXT";
-                        ricerca(str, msgSplit, handler, path);
+                        ricerca(handler, path);
                         break;
                     case "3":
                         path = "../../../Utenti/In programma/" + msgSplit[0] + ".TXT";
-                        ricerca(str, msgSplit, handler, path);
+                        ricerca(handler, path);
                         break;
                     case "4":
                         //ricerca utente
                         break;
                     case "5":
+                        selezione();
+                        break;
+                    case "6":
                         end = true;
                         break;
                 }
@@ -123,22 +126,29 @@ public class Server {
             byte[] msg = Encoding.ASCII.GetBytes(Convert.ToString(success) + ';' + str[1]);
 
             handler.Send(msg);
+
+            //handler.SendFile("../../../Utenti/propic/" + str[0] + ".png");
+            
+
+            //invio immagine di profilo
         }
 
-        public void ricerca(string[] str, string[] msgSplit, Socket handler, string path) {
+        public void ricerca(Socket handler, string path) {
+            string a = "";
             byte[] msg;
 
             foreach (string line in File.ReadLines(path)) {
-                msg = Encoding.ASCII.GetBytes(line);
-
-                handler.Send(msg);
+                a += line + "\n";
             }
-            msg = Encoding.ASCII.GetBytes("<EOF>");
+            msg = Encoding.ASCII.GetBytes(a);
 
             handler.Send(msg);
 
-            //handler.Shutdown(SocketShutdown.Both);
-            //handler.Close();
+            //invio immagini di copertina
+        }
+
+        public void selezione() {
+
         }
     }
 }

@@ -46,10 +46,7 @@ namespace Client {
 
                 try {
                     B.socket.Connect(remoteEP);
-                    Console.WriteLine("Socket connected to {0}",
-                        B.socket.RemoteEndPoint.ToString());
-
-                    Console.WriteLine("Connected");
+                    B.socket.RemoteEndPoint.ToString();
                 }
                 catch (ArgumentNullException ane) {
                     Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
@@ -72,16 +69,21 @@ namespace Client {
             
             if (textBox1.Text != null && textBox2.Text != null) {
                 msg = Encoding.ASCII.GetBytes(textBox1.Text + ';' + textBox2.Text + ';' + "0" + ".");
-                Console.WriteLine("stringa inviata: " + msg);
                 bytesSent = socket.Send(msg);
 
                 bytesRec = socket.Receive(bytes);
-                
 
                 data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
                 str = data.ToString().Split(';');
 
-                if(str[0] == "True") {
+                //bytesRec = socket.Receive(bytes);
+
+                ///*using */var writer = new BinaryWriter(File.OpenWrite("../../propic.png"));
+                //writer.Write(bytesRec);
+
+                //File.WriteAllBytes("../../propic.png", bytesRec);
+
+                if (str[0] == "True") {
                     activeUser = textBox1.Text;
                     activeNick = str[1];
                     success = true;
@@ -98,55 +100,26 @@ namespace Client {
                 textBox1.Text = "";
                 textBox2.Text = "";
             }
-
-            //socket.Shutdown(SocketShutdown.Both);
-            //socket.Close();
         }
 
         private void bottone0_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone0, 0);
 
-            //ricerca("1");
-            
-            ///*
-            msg = Encoding.ASCII.GetBytes(activeUser + ';' + activeNick + ';' + "1" + ".");
+            ricerca("1");
 
-            bytesSent = socket.Send(msg);
-
-            bytesRec = socket.Receive(bytes);
-            
-            data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
-            while (true) {
-                bytesRec = socket.Receive(bytes);
-
-                data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
-
-                //provare anche a passare tutto il file in una volta
-                if (data != "<EOF>") {
-                    //str = data.ToString().Split(';');
-                    //per provare scrivo tutto su file per ora
-                    //File.AppendAllText("./" + activeUser + "_Completato" + ".TXT", data);
-                    Console.WriteLine(data);
-                }
-                else {
-                    break;
-                }
-            }
-            //socket.Shutdown(SocketShutdown.Both);
-            //socket.Close();
-            //*/
+            //string[] str = data.Split('\n');
         }
 
         private void bottone1_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone1, 1);
 
-            //ricerca("2");
+            ricerca("2");
         }
 
         private void bottone2_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone2, 2);
 
-            //ricerca("3");
+            ricerca("3");
         }
 
         private void bottone3_Click(object sender, EventArgs e) {
@@ -164,6 +137,8 @@ namespace Client {
         }
 
         private void Backlog_Load(object sender, EventArgs e) {
+            CheckForIllegalCrossThreadCalls = false;
+
             for (int i = 0; i < stato.Length; i++) {
                 stato[i] = false;
             }
@@ -197,6 +172,8 @@ namespace Client {
         }
 
         private void ricerca(string n) {
+            listBox1.Items.Clear();
+
             msg = Encoding.ASCII.GetBytes(activeUser + ';' + activeNick + ';' + n + ".");
 
             bytesSent = socket.Send(msg);
@@ -204,32 +181,49 @@ namespace Client {
             bytesRec = socket.Receive(bytes);
 
             data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
-            while (true) {
-                bytesRec = socket.Receive(bytes);
 
-                data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+            Console.WriteLine(data);
 
-                if (data != "<EOF>") {
-                    //str = data.ToString().Split(';');
-                    //per provare scrivo tutto su file per ora
-                    File.AppendAllText("./" + activeUser + ".TXT", data);
-                }
-                else {
-                    break;
-                }
+            string[] tmp = data.Split('\n');
+            
+            for (int i = 0; i < tmp.Length; i++) {
+                listBox1.Items.Add(tmp[i].Split(';')[0]);
             }
         }
 
         private void Backlog_FormClosing(object sender, FormClosingEventArgs e) {
-            msg = Encoding.ASCII.GetBytes(" ; ;5.");
+            msg = Encoding.ASCII.GetBytes(" ; ;6.");
 
-            bytesSent = socket.Send(msg);
+            try {
+                bytesSent = socket.Send(msg);
+            }
+            catch (Exception exc) {
+                Console.Write(exc.ToString());
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
+
+        private void listBox1_Click(object sender, EventArgs e) {
+            
+        }
+
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e) {
+            if (listBox1.SelectedItem != null) {
+                string tmp = listBox1.SelectedItem.ToString();
+
+                msg = Encoding.ASCII.GetBytes(activeUser + ';' + tmp + ';' + "5.");
+
+                bytesSent = socket.Send(msg);
+
+                //ricezione immagine del gioco selezionato, gli altri dati sono già nella stringa spezzata dopo averla ricevuta
+            }
         }
     }
 }
 
-
-//aggiungere controlli OVUNQUE per vedere se nella casella di testo c'è scritta roba o no
 
 //invece di immagini singole provare a usare una imagelist
 
@@ -237,5 +231,3 @@ namespace Client {
 
 //bio in markdown/html
 //https://stackoverflow.com/questions/30928/a-wysiwyg-markdown-control-for-windows-forms
-
-//le immagini e i dati dei giochi vengono scaricate e salvate in locale in una cache che a chiusura del programma viene cancellata totalmente
