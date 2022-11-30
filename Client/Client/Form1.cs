@@ -15,6 +15,9 @@ using System.Net.Sockets;
 namespace Client { 
 
     public partial class Backlog : Form {
+        TcpListener tcpListener = new TcpListener(IPAddress.Any, 1234);
+
+        string[] tmp;
         Socket socket;
         byte[] bytes;
         byte[] bytes2;
@@ -103,7 +106,6 @@ namespace Client {
         }
 
         private void pic(string path) {
-            TcpListener tcpListener = new TcpListener(IPAddress.Any, 1234);
             tcpListener.Start();
 
             TcpClient tcpClient = tcpListener.AcceptTcpClient();
@@ -137,8 +139,8 @@ namespace Client {
                 fStream.Close();
             }
 
-            reader.Close();
-            tcpClient.Close();
+            //reader.Close();
+            //tcpClient.Close();
         }
 
         private void bottone0_Click(object sender, EventArgs e) {
@@ -221,9 +223,9 @@ namespace Client {
 
             data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
 
-            Console.WriteLine(data);
+            //Console.WriteLine(data);
 
-            string[] tmp = data.Split('\n');
+            tmp = data.Split('\n');
             
             for (int i = 0; i < tmp.Length; i++) {
                 listBox1.Items.Add(tmp[i].Split(';')[0]);
@@ -251,9 +253,9 @@ namespace Client {
 
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e) {
             if (listBox1.SelectedItem != null) {
-                string tmp = listBox1.SelectedItem.ToString();
+                string temp = listBox1.SelectedItem.ToString();
 
-                msg = Encoding.ASCII.GetBytes(activeUser + ';' + tmp + ';' + "5.");
+                msg = Encoding.ASCII.GetBytes(activeUser + ';' + temp + ';' + "5.");
                 bytesSent = socket.Send(msg);
 
                 string path = "../../IMG/games/" + listBox1.SelectedItem.ToString() + ".png";
@@ -264,10 +266,21 @@ namespace Client {
                 if (File.Exists(path)) {
                     pictureBox2.Image = Image.FromFile(path);
                 }
+                string[] game = tmp[listBox1.SelectedIndex].Split(';');
+
+                Titolo.Text = game[0];
+                genere.Text = game[2];
+                sviluppatore.Text = game[3];
+                voto.Text = game[4];
+                descrizione.Text = game[1];
             }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e) {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e) {
 
         }
     }
