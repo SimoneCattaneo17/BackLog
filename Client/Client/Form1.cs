@@ -76,7 +76,30 @@ namespace Client {
                 data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
                 str = data.ToString().Split(';');
 
-                //bytesRec = socket.Receive(bytes);
+                //inizia qui
+
+                socket.Receive(bytes);
+
+                File.WriteAllBytes("../../propic.png", bytes);
+
+                socket.Receive(bytes);
+
+                /*
+                NetworkStream ns = new NetworkStream(socket);
+                StreamReader sr = new StreamReader(ns);
+                StreamWriter sw = new StreamWriter(ns);
+                */
+
+                /*
+                bytesRec = socket.Receive(bytes);
+
+                MemoryStream ms = new MemoryStream(bytes);
+                Image img = Image.FromStream(ms);
+                img.Save("../../propic.png", System.Drawing.Imaging.ImageFormat.Png);
+                pictureBox1.Image = img;
+                ms.Close();
+
+                */
 
                 ///*using */var writer = new BinaryWriter(File.OpenWrite("../../propic.png"));
                 //writer.Write(bytesRec);
@@ -220,6 +243,10 @@ namespace Client {
 
                 //ricezione immagine del gioco selezionato, gli altri dati sono già nella stringa spezzata dopo averla ricevuta
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e) {
+
         }
     }
 }

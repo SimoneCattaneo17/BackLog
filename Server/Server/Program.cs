@@ -2,6 +2,9 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 
 public class Server {
 
@@ -127,10 +130,15 @@ public class Server {
 
             handler.Send(msg);
 
-            //handler.SendFile("../../../Utenti/propic/" + str[0] + ".png");
-            
+            //inizia qui
 
-            //invio immagine di profilo
+            byte[] msg2 = File.ReadAllBytes("../../../Utenti/propic/" + str[0] + ".png");
+
+            handler.Send(msg2);
+
+            //MemoryStream ms = new MemoryStream(msg2);
+
+            //handler.SendFile("../../../Utenti/propic/" + str[0] + ".png");
         }
 
         public void ricerca(Socket handler, string path) {
