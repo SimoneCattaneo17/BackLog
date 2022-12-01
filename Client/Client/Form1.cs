@@ -176,8 +176,8 @@ namespace Client {
         }
 
         private void rjButtons1_Click(object sender, EventArgs e) {
-            //prendere dal server la lista di giochi attualmente presenti nell'archivio
-            //mandare il gioco scelto al server
+            Form3 f3 = new Form3(activeUser);
+            f3.Show();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e) {

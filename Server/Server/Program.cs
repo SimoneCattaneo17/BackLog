@@ -104,6 +104,8 @@ public class Server {
                         case "5":
                             pic("../../../games/" + msgSplit[1] + ".png", Convert.ToInt32(msgSplit[0]));
                             break;
+                        case "6":
+                            break; 
                         case "end":
                             end = true;
                             break;
@@ -152,7 +154,6 @@ public class Server {
 
             handler.Send(msg);
 
-            //inizia qui
             string fileName = "../../../Utenti/propic/" + str[0] + ".png";
             pic(fileName, 1234);
         }
@@ -160,18 +161,20 @@ public class Server {
             TcpClient tcpClient = new TcpClient("127.0.0.1", port);
             StreamWriter sWriter = new StreamWriter(tcpClient.GetStream());
             if(File.Exists(fileName)) {
-                bytes = File.ReadAllBytes(fileName);
+                if (new FileInfo(fileName).Length != 0) {
+                    bytes = File.ReadAllBytes(fileName);
 
-                sWriter.WriteLine(bytes.Length.ToString());
-                sWriter.Flush();
+                    sWriter.WriteLine(bytes.Length.ToString());
+                    sWriter.Flush();
 
-                sWriter.WriteLine("./tmp.png");
-                sWriter.Flush();
+                    sWriter.WriteLine("./tmp.png");
+                    sWriter.Flush();
 
-                tcpClient.Client.SendFile(fileName);
+                    tcpClient.Client.SendFile(fileName);
 
-                sWriter.Close();
-                tcpClient.Close();
+                    sWriter.Close();
+                    tcpClient.Close();
+                }
             }
         }
 
@@ -179,8 +182,12 @@ public class Server {
             string a = "";
             byte[] msg;
             if (File.Exists(path)) {
-                foreach (string line in File.ReadLines(path)) {
+                if (new FileInfo(path).Length != 0)
+                    foreach (string line in File.ReadLines(path)) {
                     a += line + "\n";
+                }
+                else {
+                    a = ".";
                 }
             }
             else {

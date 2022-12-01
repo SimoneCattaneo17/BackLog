@@ -273,10 +273,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Client.Properties.Resources._default;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 18);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 12);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 92);
+            this.pictureBox1.Size = new System.Drawing.Size(88, 88);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
