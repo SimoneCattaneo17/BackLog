@@ -13,15 +13,14 @@ using System.Net;
 using System.Net.Sockets;
 
 namespace Client { 
-
     public partial class Backlog : Form {
-        TcpListener tcpListener = new TcpListener(IPAddress.Any, 1234);
+        TcpListenerEx tcpListener = new TcpListenerEx(IPAddress.Any, 1234);
 
         string[] tmp;
         Socket socket;
         byte[] bytes;
         byte[] bytes2;
-        public static string data;
+        static string data;
 
         byte[] msg;
         int bytesSent;
@@ -29,13 +28,19 @@ namespace Client {
 
         string[] str = new string[3];
 
-        public bool[] stato = new bool[3];
-        public string activeUser { get; set;}
-        public string activeNick { get; set; }
+        bool[] stato = new bool[3];
+        string activeUser { get; set;}
+        string activeNick { get; set; }
 
         public Backlog() {
             InitializeComponent();
             textBox2.PasswordChar = '*';
+
+            Titolo.Text = "";
+            genere.Text = "";
+            sviluppatore.Text = "";
+            voto.Text = "";
+            descrizione.Text = "";
 
             startclient(this);
         }
@@ -87,7 +92,7 @@ namespace Client {
                     success = true;
                 }
 
-                pic("../../IMG/propic/propic.png");
+                a.pic("../../IMG/propic/propic.png", tcpListener);
             }
 
             if (success) {
@@ -146,7 +151,7 @@ namespace Client {
         private void bottone0_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone0, 0);
 
-            ricerca("1");
+            a.ricerca("1", listBox1, ref tmp, msg, bytes, bytesRec, bytesSent, activeUser, activeNick, socket);
 
             //string[] str = data.Split('\n');
         }
@@ -154,13 +159,15 @@ namespace Client {
         private void bottone1_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone1, 1);
 
-            ricerca("2");
+            a.ricerca("2", listBox1, ref tmp, msg, bytes, bytesRec, bytesSent, activeUser, activeNick, socket);
+
         }
 
         private void bottone2_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone2, 2);
 
-            ricerca("3");
+            a.ricerca("3", listBox1, ref tmp, msg, bytes, bytesRec, bytesSent, activeUser, activeNick, socket);
+
         }
 
         private void bottone3_Click(object sender, EventArgs e) {
@@ -223,12 +230,15 @@ namespace Client {
 
             data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
 
-            //Console.WriteLine(data);
+            if(data != ".") {
+                tmp = data.Split('\n');
 
-            tmp = data.Split('\n');
-            
-            for (int i = 0; i < tmp.Length; i++) {
-                listBox1.Items.Add(tmp[i].Split(';')[0]);
+                for (int i = 0; i < tmp.Length; i++) {
+                    listBox1.Items.Add(tmp[i].Split(';')[0]);
+                }
+            }
+            else {
+                MessageBox.Show("Nessun gioco all'interno della categoria selezionata");
             }
         }
 
@@ -255,14 +265,12 @@ namespace Client {
             if (listBox1.SelectedItem != null) {
                 string temp = listBox1.SelectedItem.ToString();
 
-                msg = Encoding.ASCII.GetBytes(activeUser + ';' + temp + ';' + "5.");
+                msg = Encoding.ASCII.GetBytes("1234" + ';' + temp + ';' + "5.");
                 bytesSent = socket.Send(msg);
 
                 string path = "../../IMG/games/" + listBox1.SelectedItem.ToString() + ".png";
 
-                Console.WriteLine(path);
-
-                pic(path);
+                a.pic(path, tcpListener);
                 if (File.Exists(path)) {
                     pictureBox2.Image = Image.FromFile(path);
                 }
@@ -281,6 +289,10 @@ namespace Client {
         }
 
         private void label4_Click(object sender, EventArgs e) {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e) {
 
         }
     }

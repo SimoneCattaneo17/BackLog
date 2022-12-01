@@ -66,51 +66,72 @@ public class Server {
             bool end = false;
             string path;
             while (!end) {
-                //Console.WriteLine("client connesso");
-                data = "";
+                try {
+                    //Console.WriteLine("client connesso");
+                    data = "";
 
-                //non esce finche' non riceve un messaggio con il . alla fine
-                while (true) {
-                    int bytesRec = handler.Receive(bytes);
-                    data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                    if (data.IndexOf(".") > -1) {
-                        break;
+                    //non esce finche' non riceve un messaggio con il . alla fine
+                    while (true) {
+                        int bytesRec = handler.Receive(bytes);
+                        data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                        if (data.IndexOf(".") > -1) {
+                            break;
+                        }
+                    }
+
+                    data = data.Remove(data.Length - 1);
+                    msgSplit = data.Split(';');
+
+                    switch (msgSplit[2]) {
+                        case "0":
+                            login(str, msgSplit, success, handler);
+                            break;
+                        case "1":
+                            path = "../../../Utenti/Completato/" + msgSplit[0] + ".TXT";
+                            ricerca(handler, path);
+                            break;
+                        case "2":
+                            path = "../../../Utenti/In corso/" + msgSplit[0] + ".TXT";
+                            ricerca(handler, path);
+                            break;
+                        case "3":
+                            path = "../../../Utenti/In programma/" + msgSplit[0] + ".TXT";
+                            ricerca(handler, path);
+                            break;
+                        case "4":
+                            ricercaUtente();
+                            break;
+                        case "5":
+                            pic("../../../games/" + msgSplit[1] + ".png", Convert.ToInt32(msgSplit[0]));
+                            break;
+                        case "end":
+                            end = true;
+                            break;
                     }
                 }
-
-                data = data.Remove(data.Length - 1);
-                msgSplit = data.Split(';');
-
-                switch (msgSplit[2]) {
-                    case "0":
-                        login(str, msgSplit, success, handler);
-                        break;
-                    case "1":
-                        path = "../../../Utenti/Completato/" + msgSplit[0] + ".TXT";
-                        ricerca(handler, path);
-                        break;
-                    case "2":
-                        path = "../../../Utenti/In corso/" + msgSplit[0] + ".TXT";
-                        ricerca(handler, path);
-                        break;
-                    case "3":
-                        path = "../../../Utenti/In programma/" + msgSplit[0] + ".TXT";
-                        ricerca(handler, path);
-                        break;
-                    case "4":
-                        //ricerca utente
-                        break;
-                    case "5":
-                        pic("../../../games/" + msgSplit[1] + ".png");
-                        //selezione();
-                        break;
-                    case "end":
-                        end = true;
-                        break;
+                catch {
+                    Console.WriteLine("client disconnesso");
+                    end = true;
+                    break;
                 }
             }
             handler.Shutdown(SocketShutdown.Both);
             handler.Close();
+        }
+        public void ricercaUtente() {
+            foreach (string line in File.ReadLines("../../../Login.TXT")) {
+                str = line.Split(',');
+                if (str[0] == msgSplit[0]) {
+                    success = true;
+                    break;
+                }
+            }
+
+            byte[] msg = Encoding.ASCII.GetBytes(Convert.ToString(success) + ';' + str[1]);
+
+            handler.Send(msg);
+
+            pic("../../../Utenti/propic/" + str[0] + ".png", 5050);
         }
         public void login(string[] str, string[] msgSplit, bool success, Socket handler) {
             foreach (string line in File.ReadLines("../../../Login.TXT")) {
@@ -133,10 +154,10 @@ public class Server {
 
             //inizia qui
             string fileName = "../../../Utenti/propic/" + str[0] + ".png";
-            pic(fileName);
+            pic(fileName, 1234);
         }
-        private void pic(string fileName) {
-            TcpClient tcpClient = new TcpClient("127.0.0.1", 1234);
+        private void pic(string fileName, int port) {
+            TcpClient tcpClient = new TcpClient("127.0.0.1", port);
             StreamWriter sWriter = new StreamWriter(tcpClient.GetStream());
             if(File.Exists(fileName)) {
                 bytes = File.ReadAllBytes(fileName);
@@ -157,15 +178,18 @@ public class Server {
         public void ricerca(Socket handler, string path) {
             string a = "";
             byte[] msg;
-
-            foreach (string line in File.ReadLines(path)) {
-                a += line + "\n";
+            if (File.Exists(path)) {
+                foreach (string line in File.ReadLines(path)) {
+                    a += line + "\n";
+                }
             }
+            else {
+                a = ".";
+            }
+
             msg = Encoding.ASCII.GetBytes(a);
 
             handler.Send(msg);
-
-            //invio immagini di copertina
         }
     }
 }
