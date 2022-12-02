@@ -37,7 +37,9 @@ namespace Client {
             }
         }
 
-        public static void pic(string path, TcpListenerEx tcpListener) {
+        public static void pic(string path, TcpListenerEx tcpListener2, int n) {
+
+            TcpListenerEx tcpListener = new TcpListenerEx(IPAddress.Any, n);
             tcpListener.Start();
 
             TcpClient tcpClient = tcpListener.AcceptTcpClient();
@@ -71,8 +73,12 @@ namespace Client {
                 fStream.Close();
             }
 
-            //reader.Close();
-            //tcpClient.Close();
+            reader.Close();
+            tcpClient.Close();
+            tcpClient = null;
+            tcpListener.Stop();
+            tcpListener = null;
+
         }
     }
 

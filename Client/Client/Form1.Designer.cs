@@ -93,8 +93,7 @@ namespace Client
             // 
             // descrizione
             // 
-            this.descrizione.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.descrizione.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.descrizione.AutoSize = true;
             this.descrizione.ForeColor = System.Drawing.SystemColors.Window;
             this.descrizione.Location = new System.Drawing.Point(550, 399);
@@ -105,7 +104,7 @@ namespace Client
             // 
             // voto
             // 
-            this.voto.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.voto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.voto.AutoSize = true;
             this.voto.ForeColor = System.Drawing.SystemColors.Window;
             this.voto.Location = new System.Drawing.Point(838, 307);
@@ -127,7 +126,7 @@ namespace Client
             // 
             // sviluppatore
             // 
-            this.sviluppatore.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.sviluppatore.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sviluppatore.AutoSize = true;
             this.sviluppatore.ForeColor = System.Drawing.SystemColors.Window;
             this.sviluppatore.Location = new System.Drawing.Point(838, 261);
@@ -138,7 +137,7 @@ namespace Client
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Window;
             this.label6.Location = new System.Drawing.Point(838, 242);
@@ -149,7 +148,7 @@ namespace Client
             // 
             // genere
             // 
-            this.genere.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.genere.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.genere.AutoSize = true;
             this.genere.ForeColor = System.Drawing.SystemColors.Window;
             this.genere.Location = new System.Drawing.Point(838, 211);
@@ -161,7 +160,7 @@ namespace Client
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
             this.label3.Location = new System.Drawing.Point(838, 192);
@@ -172,7 +171,7 @@ namespace Client
             // 
             // Titolo
             // 
-            this.Titolo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Titolo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Titolo.AutoSize = true;
             this.Titolo.ForeColor = System.Drawing.SystemColors.Window;
             this.Titolo.Location = new System.Drawing.Point(838, 162);
@@ -183,7 +182,7 @@ namespace Client
             // 
             // Ttl
             // 
-            this.Ttl.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Ttl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Ttl.AutoSize = true;
             this.Ttl.ForeColor = System.Drawing.SystemColors.Window;
             this.Ttl.Location = new System.Drawing.Point(838, 143);
@@ -194,9 +193,7 @@ namespace Client
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Location = new System.Drawing.Point(553, 116);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(250, 250);
@@ -253,6 +250,7 @@ namespace Client
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Location = new System.Drawing.Point(412, 178);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(248, 22);
@@ -260,6 +258,7 @@ namespace Client
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox2.Location = new System.Drawing.Point(412, 258);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(248, 22);
@@ -267,6 +266,7 @@ namespace Client
             // 
             // Username
             // 
+            this.Username.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Username.AutoSize = true;
             this.Username.ForeColor = System.Drawing.SystemColors.Window;
             this.Username.Location = new System.Drawing.Point(495, 159);
@@ -277,6 +277,7 @@ namespace Client
             // 
             // Password
             // 
+            this.Password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Password.AutoSize = true;
             this.Password.ForeColor = System.Drawing.SystemColors.Window;
             this.Password.Location = new System.Drawing.Point(495, 239);
@@ -287,6 +288,7 @@ namespace Client
             // 
             // Sign_In
             // 
+            this.Sign_In.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Sign_In.AutoSize = true;
             this.Sign_In.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Sign_In.ForeColor = System.Drawing.SystemColors.Window;
@@ -375,6 +377,7 @@ namespace Client
             // 
             // Login
             // 
+            this.Login.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Login.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.Login.FlatAppearance.BorderSize = 0;
             this.Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

@@ -90,7 +90,7 @@ namespace Client {
                 activeNick = str[1];
                 success = true;
 
-                a.pic("../../IMG/propic/propic_" + activeUser + ".png", tcpListener);
+                a.pic("../../IMG/propic/propic_" + activeUser + ".png", tcpListener, 5050);
 
                 if (success) {
                     label1.Text = activeNick;
@@ -157,7 +157,7 @@ namespace Client {
         }
 
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e) {
-            if (listBox1.SelectedItem != null) {
+                if (listBox1.SelectedItem != null) {
                 string temp = listBox1.SelectedItem.ToString();
 
                 msg = Encoding.ASCII.GetBytes("5050" + ';' + temp + ';' + "5.");
@@ -167,7 +167,7 @@ namespace Client {
 
                 string path = "../../IMG/games/" + activeUser + "/" + listBox1.SelectedItem.ToString() + ".png";
 
-                a.pic(path, tcpListener);
+                a.pic(path, tcpListener, 5050);
                 if (File.Exists(path)) {
                     pictureBox2.Image = Image.FromFile(path);
                 }
@@ -179,6 +179,11 @@ namespace Client {
                 voto.Text = game[4];
                 descrizione.Text = game[1];
             }
+        }
+
+        private void bottone3_Click(object sender, EventArgs e) {
+            textBox1.Text = "";
+            panel1.Visible = false;
         }
     }
 }

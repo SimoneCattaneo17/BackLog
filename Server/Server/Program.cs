@@ -155,6 +155,7 @@ public class Server {
             handler.Send(msg);
 
             string fileName = "../../../Utenti/propic/" + str[0] + ".png";
+            //problemi con multiclient
             pic(fileName, 1234);
         }
         private void pic(string fileName, int port) {

@@ -14,7 +14,8 @@ using System.Net.Sockets;
 
 namespace Client { 
     public partial class Backlog : Form {
-        TcpListenerEx tcpListener = new TcpListenerEx(IPAddress.Any, 1234);
+        TcpListenerEx tcpListener;
+        //TcpListenerEx tcpListener;
 
         string[] tmp;
         Socket socket;
@@ -42,6 +43,8 @@ namespace Client {
             voto.Text = "";
             descrizione.Text = "";
 
+      
+
             startclient(this);
         }
         public static void startclient(Backlog B) {
@@ -53,6 +56,8 @@ namespace Client {
 
                 B.socket = new Socket(ipAddress.AddressFamily,
                     SocketType.Stream, ProtocolType.Tcp);
+                
+                B.tcpListener = new TcpListenerEx(IPAddress.Any, 1234);
 
                 try {
                     B.socket.Connect(remoteEP);
@@ -92,7 +97,8 @@ namespace Client {
                     success = true;
                 }
 
-                a.pic("../../IMG/propic/propic.png", tcpListener);
+                //problemi con multiclient
+                a.pic("../../IMG/propic/propic.png", tcpListener, 1234);
             }
 
             if (success) {
@@ -110,50 +116,10 @@ namespace Client {
             }
         }
 
-        private void pic(string path) {
-            tcpListener.Start();
-
-            TcpClient tcpClient = tcpListener.AcceptTcpClient();
-
-            StreamReader reader = new StreamReader(tcpClient.GetStream());
-
-            string cmdFileSize = reader.ReadLine();
-
-            string cmdFileName = reader.ReadLine();
-
-            int length = Convert.ToInt32(cmdFileSize);
-            byte[] buffer = new byte[length];
-            int received = 0;
-            int read = 0;
-            int size = 1024;
-            int remaining = 0;
-
-            while (received < length) {
-                remaining = length - received;
-                if (remaining < size) {
-                    size = remaining;
-                }
-
-                read = tcpClient.GetStream().Read(buffer, received, size);
-                received += read;
-            }
-
-            using (FileStream fStream = new FileStream(path, FileMode.Create)) {
-                fStream.Write(buffer, 0, buffer.Length);
-                fStream.Flush();
-                fStream.Close();
-            }
-
-            //reader.Close();
-            //tcpClient.Close();
-        }
-
         private void bottone0_Click(object sender, EventArgs e) {
             buttons(ref stato, ref bottone0, 0);
 
             a.ricerca("1", listBox1, ref tmp, msg, bytes, bytesRec, bytesSent, activeUser, activeNick, socket);
-
-            //string[] str = data.Split('\n');
         }
 
         private void bottone1_Click(object sender, EventArgs e) {
@@ -270,7 +236,7 @@ namespace Client {
 
                 string path = "../../IMG/games/" + listBox1.SelectedItem.ToString() + ".png";
 
-                a.pic(path, tcpListener);
+                a.pic(path, tcpListener, 1234);
                 if (File.Exists(path)) {
                     pictureBox2.Image = Image.FromFile(path);
                 }
