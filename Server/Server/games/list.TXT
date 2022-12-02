@@ -1,3 +1,10 @@
+Death Stranding;Death Stranding is an open world game developed by Kojima Production and published by Sony;Open World;Kojima Production;8
 Elden Ring;Elden ring is an open world game developed by FromSoftware and published by Bandai Namco in 2022;Souls Like/Open World;FromSoftware;9
-Xenoblade Chronicles 3;Xenoblade Chronicles 3 is an action role-playing game developed by Monolith soft and published by Nintendo for the Nintendo Switch, it is the fourth installment in the Xenoblade Chronicles franchise;Action role-playing;Monolith Soft;9.5
+Metal Gear Solid;Metal Gear Solid is an action/stealth game developed by Kojima Production and published by Konami;Action/Stealth;Kojima Production;9
+Monster Hunter Rise;Monster Hunter Rise is an action/RPG game developed and published by Capcom;Action/RPG;Capcom;8.5
+Persona 5;Persona 5 is a JRPG game developed and published by Atlus;JRPG;Atlus;9.5
+Resident Evil Village;Resident Evil Village is a Survival Horror game developed and published by Capcom;Survival Horror;Capcom;8
 Silent Hill 2;Silent Hill 2 is a survival horror game developed by Team Silent and published by Konami;Survival Horror;Team Silent;8.5
+Titanfall 2;Titanfall 2 is a first person shooter (FPS) game developed by Respawn Entertainment and published by Electronic Arts;First Person Shooter;Respawn Entertainment;7.5
+Xenoblade Chronicles 3;Xenoblade Chronicles 3 is an action role-playing game developed by Monolith soft and published by Nintendo for the Nintendo Switch, it is the fourth installment in the Xenoblade Chronicles franchise;Action role-playing;Monolith Soft;9.5
+Yakuza Kiwami 2;Yakuza Kiwami 2 is an Action RPG game developed by Ryu Ga Gotoku Studio and published by Sega;Action RPG;Ryu Ga Gotoku Studio;9

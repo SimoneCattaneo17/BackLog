@@ -10,4 +10,3 @@ C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo1
 C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\obj\Debug\Client.exe
 C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\obj\Debug\Client.pdb
 C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\obj\Debug\Client.Form2.resources
-C:\Users\miky7\OneDrive\Desktop\simone\scuola\Quinta\TPS\Backlog\SimoneCattaneo17\BackLog\Client\Client\obj\Debug\Client.Form3.resources

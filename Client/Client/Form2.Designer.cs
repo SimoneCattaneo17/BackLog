@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.panel1 = new System.Windows.Forms.Panel();
             this.descrizione = new System.Windows.Forms.Label();
             this.voto = new System.Windows.Forms.Label();
@@ -35,15 +36,15 @@
             this.Ttl = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.bottone2 = new Client.RJButtons();
+            this.bottone1 = new Client.RJButtons();
+            this.bottone0 = new Client.RJButtons();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.bottone2 = new Client.RJButtons();
-            this.bottone1 = new Client.RJButtons();
-            this.bottone0 = new Client.RJButtons();
             this.cerca = new Client.RJButtons();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -194,6 +195,8 @@
             // listBox1
             // 
             this.listBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.listBox1.BackColor = System.Drawing.SystemColors.MenuText;
+            this.listBox1.ForeColor = System.Drawing.SystemColors.Window;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(316, 83);
@@ -202,6 +205,51 @@
             this.listBox1.TabIndex = 69;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
+            // 
+            // bottone2
+            // 
+            this.bottone2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.bottone2.BackColor = System.Drawing.Color.Black;
+            this.bottone2.FlatAppearance.BorderSize = 0;
+            this.bottone2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bottone2.ForeColor = System.Drawing.Color.White;
+            this.bottone2.Location = new System.Drawing.Point(15, 314);
+            this.bottone2.Name = "bottone2";
+            this.bottone2.Size = new System.Drawing.Size(249, 47);
+            this.bottone2.TabIndex = 68;
+            this.bottone2.Text = "In programma";
+            this.bottone2.UseVisualStyleBackColor = false;
+            this.bottone2.Click += new System.EventHandler(this.bottone2_Click);
+            // 
+            // bottone1
+            // 
+            this.bottone1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.bottone1.BackColor = System.Drawing.Color.Black;
+            this.bottone1.FlatAppearance.BorderSize = 0;
+            this.bottone1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bottone1.ForeColor = System.Drawing.Color.White;
+            this.bottone1.Location = new System.Drawing.Point(15, 245);
+            this.bottone1.Name = "bottone1";
+            this.bottone1.Size = new System.Drawing.Size(249, 47);
+            this.bottone1.TabIndex = 67;
+            this.bottone1.Text = "In corso";
+            this.bottone1.UseVisualStyleBackColor = false;
+            this.bottone1.Click += new System.EventHandler(this.bottone1_Click);
+            // 
+            // bottone0
+            // 
+            this.bottone0.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.bottone0.BackColor = System.Drawing.Color.Black;
+            this.bottone0.FlatAppearance.BorderSize = 0;
+            this.bottone0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bottone0.ForeColor = System.Drawing.Color.White;
+            this.bottone0.Location = new System.Drawing.Point(15, 177);
+            this.bottone0.Name = "bottone0";
+            this.bottone0.Size = new System.Drawing.Size(249, 47);
+            this.bottone0.TabIndex = 66;
+            this.bottone0.Text = "Completato";
+            this.bottone0.UseVisualStyleBackColor = false;
+            this.bottone0.Click += new System.EventHandler(this.bottone0_Click);
             // 
             // label2
             // 
@@ -249,6 +297,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
             this.label3.Location = new System.Drawing.Point(413, 95);
@@ -259,58 +308,15 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Location = new System.Drawing.Point(429, 145);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(218, 22);
             this.textBox1.TabIndex = 52;
             // 
-            // bottone2
-            // 
-            this.bottone2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.bottone2.BackColor = System.Drawing.Color.Black;
-            this.bottone2.FlatAppearance.BorderSize = 0;
-            this.bottone2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bottone2.ForeColor = System.Drawing.Color.White;
-            this.bottone2.Location = new System.Drawing.Point(15, 314);
-            this.bottone2.Name = "bottone2";
-            this.bottone2.Size = new System.Drawing.Size(249, 47);
-            this.bottone2.TabIndex = 68;
-            this.bottone2.Text = "In programma";
-            this.bottone2.UseVisualStyleBackColor = false;
-            this.bottone2.Click += new System.EventHandler(this.bottone2_Click);
-            // 
-            // bottone1
-            // 
-            this.bottone1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.bottone1.BackColor = System.Drawing.Color.Black;
-            this.bottone1.FlatAppearance.BorderSize = 0;
-            this.bottone1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bottone1.ForeColor = System.Drawing.Color.White;
-            this.bottone1.Location = new System.Drawing.Point(15, 245);
-            this.bottone1.Name = "bottone1";
-            this.bottone1.Size = new System.Drawing.Size(249, 47);
-            this.bottone1.TabIndex = 67;
-            this.bottone1.Text = "In corso";
-            this.bottone1.UseVisualStyleBackColor = false;
-            this.bottone1.Click += new System.EventHandler(this.bottone1_Click);
-            // 
-            // bottone0
-            // 
-            this.bottone0.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.bottone0.BackColor = System.Drawing.Color.Black;
-            this.bottone0.FlatAppearance.BorderSize = 0;
-            this.bottone0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bottone0.ForeColor = System.Drawing.Color.White;
-            this.bottone0.Location = new System.Drawing.Point(15, 177);
-            this.bottone0.Name = "bottone0";
-            this.bottone0.Size = new System.Drawing.Size(249, 47);
-            this.bottone0.TabIndex = 66;
-            this.bottone0.Text = "Completato";
-            this.bottone0.UseVisualStyleBackColor = false;
-            this.bottone0.Click += new System.EventHandler(this.bottone0_Click);
-            // 
             // cerca
             // 
+            this.cerca.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cerca.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.cerca.FlatAppearance.BorderSize = 0;
             this.cerca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -330,8 +336,9 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Cerca Utente";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

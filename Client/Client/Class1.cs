@@ -67,10 +67,15 @@ namespace Client {
                 received += read;
             }
 
-            using (FileStream fStream = new FileStream(path, FileMode.Create)) {
-                fStream.Write(buffer, 0, buffer.Length);
-                fStream.Flush();
-                fStream.Close();
+            try {
+                using (FileStream fStream = new FileStream(path, FileMode.Create)) {
+                    fStream.Write(buffer, 0, buffer.Length);
+                    fStream.Flush();
+                    fStream.Close();
+                }
+            }
+            catch (Exception exeption) {
+                Console.WriteLine(exeption.ToString());
             }
 
             reader.Close();

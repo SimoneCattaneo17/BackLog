@@ -11,7 +11,7 @@ public class Server {
     public static string data = null;
 
     public static void StartListening() {
-        byte[] bytes = new Byte[100000];
+        byte[] bytes = new Byte[1024];
 
         
 
@@ -53,9 +53,10 @@ public class Server {
 
         string[] msgSplit = new string[2];
         bool success = false;
+        bool giocoPresente = false;
         string[] str = new string[3];
         Socket handler;
-        byte[] bytes = new Byte[100000];
+        byte[] bytes = new Byte[1024];
         String data = "";
 
         public ClientManager(Socket clientSocket) {
@@ -67,10 +68,7 @@ public class Server {
             string path;
             while (!end) {
                 try {
-                    //Console.WriteLine("client connesso");
                     data = "";
-
-                    //non esce finche' non riceve un messaggio con il . alla fine
                     while (true) {
                         int bytesRec = handler.Receive(bytes);
                         data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
@@ -105,8 +103,10 @@ public class Server {
                             pic("../../../games/" + msgSplit[1] + ".png", Convert.ToInt32(msgSplit[0]));
                             break;
                         case "6":
+                            aggiuntaGioco();
                             break; 
                         case "end":
+                            Console.WriteLine("client disconnesso");
                             end = true;
                             break;
                     }
@@ -119,6 +119,31 @@ public class Server {
             }
             handler.Shutdown(SocketShutdown.Both);
             handler.Close();
+        }
+
+        public void aggiuntaGioco() {
+            if(!File.Exists("../../../Games/list.TXT")) {
+                File.Create("../../../Games/list.TXT");
+            }
+            foreach (string line in File.ReadLines("../../../Games/list.TXT")) {
+                string[] str = line.Split(';');
+                string[] str2 = msgSplit[1].Split(',');
+                if (str[0] == str2[0]) {
+                    string game = line;
+                    giocoPresente = true;
+                    string path = "../../../Utenti/" + str2[1] + "/" + msgSplit[0] + ".TXT";
+                    if(new FileInfo(path).Length == 0) {
+                        File.AppendAllText(path, game);
+                    }
+                    else {
+                        File.AppendAllText(path, "\n" + game);
+                    }
+                    break;
+                }
+            }
+            byte[] msg = Encoding.ASCII.GetBytes(Convert.ToString(giocoPresente) + ';' + " ");
+
+            handler.Send(msg);
         }
         public void ricercaUtente() {
             foreach (string line in File.ReadLines("../../../Login.TXT")) {
@@ -155,7 +180,6 @@ public class Server {
             handler.Send(msg);
 
             string fileName = "../../../Utenti/propic/" + str[0] + ".png";
-            //problemi con multiclient
             pic(fileName, 1234);
         }
         private void pic(string fileName, int port) {

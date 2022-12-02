@@ -1,1 +1,4 @@
 Elden Ring;Elden ring is an open world game developed by FromSoftware and published by Bandai Namco in 2022;Souls Like/Open World;FromSoftware;9
+Silent Hill 2;Silent Hill 2 is a survival horror game developed by Team Silent and published by Konami;Survival Horror;Team Silent;8.5
+Xenoblade Chronicles 3;Xenoblade Chronicles 3 is an action role-playing game developed by Monolith soft and published by Nintendo for the Nintendo Switch, it is the fourth installment in the Xenoblade Chronicles franchise;Action role-playing;Monolith Soft;9.5
+Yakuza Kiwami 2;Yakuza Kiwami 2 is an Action RPG game developed by Ryu Ga Gotoku Studio and published by Sega;Action RPG;Ryu Ga Gotoku Studio;9

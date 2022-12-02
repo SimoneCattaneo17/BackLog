@@ -15,7 +15,6 @@ using System.Net.Sockets;
 namespace Client { 
     public partial class Backlog : Form {
         TcpListenerEx tcpListener;
-        //TcpListenerEx tcpListener;
 
         string[] tmp;
         Socket socket;
@@ -48,8 +47,8 @@ namespace Client {
             startclient(this);
         }
         public static void startclient(Backlog B) {
-            B.bytes = new byte[100000];
-            B.bytes2 = new byte[100000];
+            B.bytes = new byte[1024];
+            B.bytes2 = new byte[1024];
             try {
                 IPAddress ipAddress = System.Net.IPAddress.Parse("127.0.0.1");
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
@@ -72,17 +71,47 @@ namespace Client {
                 catch (Exception e) {
                     Console.WriteLine("Unexpected exception : {0}", e.ToString());
                 }
-                //break;
             }
             catch (Exception e) {
                 Console.WriteLine(e.ToString());
+            }
+        }
+        private void invio_Click(object sender, EventArgs e) {
+            if (textGioco.Text == "" || checkedListBox1.GetItemText(checkedListBox1.SelectedItem) == null) {
+                MessageBox.Show("Inserire sia un gioco che la categoria in cui inserirlo", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else {
+                string game = textGioco.Text;
+                string category;
+                category = checkedListBox1.GetItemText(checkedListBox1.SelectedItem);
+
+                textGioco.Text = "";
+                for (int ix = 0; ix < checkedListBox1.Items.Count; ++ix) {
+                    checkedListBox1.SetItemChecked(ix, false);
+                }
+                panel2.Visible = false;
+
+                msg = Encoding.ASCII.GetBytes(activeUser + ';' + game + "," + category + ';' + "6.");
+                bytesSent = socket.Send(msg);
+
+                bytesRec = socket.Receive(bytes);
+
+                data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                str = data.ToString().Split(';');
+
+                if (str[0] == "True") {
+                    MessageBox.Show("Gioco aggiunto alla categoria selezionata");
+                }
+                else {
+                    MessageBox.Show("Gioco non presente nel database");
+                }
             }
         }
 
         private void Login_Click(object sender, EventArgs e) {
             bool success = false;
 
-            if (textBox1.Text != null && textBox2.Text != null) {
+            if (textBox1.Text != "" && textBox2.Text != "") {
                 msg = Encoding.ASCII.GetBytes(textBox1.Text + ';' + textBox2.Text + ';' + "0" + ".");
                 bytesSent = socket.Send(msg);
 
@@ -97,7 +126,6 @@ namespace Client {
                     success = true;
                 }
 
-                //problemi con multiclient
                 a.pic("../../IMG/propic/propic.png", tcpListener, 1234);
             }
 
@@ -110,7 +138,7 @@ namespace Client {
                 }
             }
             else {
-                MessageBox.Show("Nome utente o password errati, immetterli nuovamente", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Inserire correttamente Nome utente e password errati", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Text = "";
                 textBox2.Text = "";
             }
@@ -142,8 +170,24 @@ namespace Client {
         }
 
         private void rjButtons1_Click(object sender, EventArgs e) {
-            Form3 f3 = new Form3(activeUser);
-            f3.Show();
+            panel2.Visible = true;
+            for(int i = 0; i < 3; i++) {
+                stato[i] = false;
+            }
+            bottone0.BackColor = Color.Black;
+            bottone1.BackColor = Color.Black;
+            bottone2.BackColor = Color.Black;
+            listBox1.Items.Clear();
+            pictureBox2.Image = null;
+            Titolo.Text = "";
+            descrizione.Text = "";
+            genere.Text = "";
+            sviluppatore.Text = "";
+            voto.Text = "";
+            Ttl.Text = "";
+            label3.Text = "";
+            label6.Text = "";
+            label8.Text = "";
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e) {
@@ -162,7 +206,6 @@ namespace Client {
             if (!stato[id]) {
                 button.BackColor = Color.MediumSlateBlue;
                 stato[id] = true;
-                //vedere di usare altro al posto di uno switch che fa schifo
                 switch (id) {
                     case 0:
                         bottone1.BackColor = Color.Black;
@@ -182,29 +225,6 @@ namespace Client {
                         stato[i] = false;
                     }
                 }
-            }
-        }
-
-        private void ricerca(string n) {
-            listBox1.Items.Clear();
-
-            msg = Encoding.ASCII.GetBytes(activeUser + ';' + activeNick + ';' + n + ".");
-
-            bytesSent = socket.Send(msg);
-
-            bytesRec = socket.Receive(bytes);
-
-            data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
-
-            if(data != ".") {
-                tmp = data.Split('\n');
-
-                for (int i = 0; i < tmp.Length; i++) {
-                    listBox1.Items.Add(tmp[i].Split(';')[0]);
-                }
-            }
-            else {
-                MessageBox.Show("Nessun gioco all'interno della categoria selezionata");
             }
         }
 
@@ -247,6 +267,10 @@ namespace Client {
                 sviluppatore.Text = game[3];
                 voto.Text = game[4];
                 descrizione.Text = game[1];
+                Ttl.Text = "Titolo:";
+                label3.Text = "Genere:";
+                label6.Text = "Sviluppatore:";
+                label8.Text = "Voto:";
             }
         }
 
@@ -261,13 +285,15 @@ namespace Client {
         private void pictureBox2_Click(object sender, EventArgs e) {
 
         }
+
+        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e) {
+            for (int ix = 0; ix < checkedListBox1.Items.Count; ++ix) {
+                if (ix != e.Index) checkedListBox1.SetItemChecked(ix, false);
+            }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e) {
+
+        }
     }
 }
-
-
-//invece di immagini singole provare a usare una imagelist
-
-//quando si clicca sull'icona si apre una nuova schermata (copia da stash)
-
-//bio in markdown/html
-//https://stackoverflow.com/questions/30928/a-wysiwyg-markdown-control-for-windows-forms

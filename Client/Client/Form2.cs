@@ -21,7 +21,7 @@ namespace Client {
         byte[] bytes;
         byte[] bytes2;
         static string data;
-
+        
         byte[] msg;
         int bytesSent;
         int bytesRec;
@@ -41,11 +41,21 @@ namespace Client {
             for (int i = 0; i < stato.Length; i++) {
                 stato[i] = false;
             }
+
+            Titolo.Text = "";
+            descrizione.Text = "";
+            genere.Text = "";
+            sviluppatore.Text = "";
+            voto.Text = "";
+            Ttl.Text = "";
+            label4.Text = "";
+            label6.Text = "";
+            label8.Text = "";
         }
 
         public static void startclient(Form2 B) {
-            B.bytes = new byte[100000];
-            B.bytes2 = new byte[100000];
+            B.bytes = new byte[1024];
+            B.bytes2 = new byte[1024];
             try {
                 IPAddress ipAddress = System.Net.IPAddress.Parse("127.0.0.1");
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
@@ -66,7 +76,6 @@ namespace Client {
                 catch (Exception e) {
                     Console.WriteLine("Unexpected exception : {0}", e.ToString());
                 }
-                //break;
             }
             catch (Exception e) {
                 Console.WriteLine(e.ToString());
@@ -90,7 +99,7 @@ namespace Client {
                 activeNick = str[1];
                 success = true;
 
-                a.pic("../../IMG/propic/propic_" + activeUser + ".png", tcpListener, 5050);
+                a.pic("..1../IMG/propic/propic_" + activeUser + ".png", tcpListener, 5050);
 
                 if (success) {
                     label1.Text = activeNick;
@@ -129,7 +138,6 @@ namespace Client {
             if (!stato[id]) {
                 button.BackColor = Color.MediumSlateBlue;
                 stato[id] = true;
-                //vedere di usare altro al posto di uno switch che fa schifo
                 switch (id) {
                     case 0:
                         bottone1.BackColor = Color.Black;
@@ -178,12 +186,11 @@ namespace Client {
                 sviluppatore.Text = game[3];
                 voto.Text = game[4];
                 descrizione.Text = game[1];
+                Ttl.Text = "Titolo:";
+                label3.Text = "Genere:";
+                label6.Text = "Sviluppatore:";
+                label8.Text = "Voto:";
             }
-        }
-
-        private void bottone3_Click(object sender, EventArgs e) {
-            textBox1.Text = "";
-            panel1.Visible = false;
         }
     }
 }

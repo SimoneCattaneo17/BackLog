@@ -1,2 +1,5 @@
 admin,admin,admin
 SimoneCattaneo,simone,simone
+Gabriele Previtali,Gabry,gabriele
+olprofesur,Diego Bernini,olprofesur
+Mirko Togni,Mirko Togni,Mirko Togni
